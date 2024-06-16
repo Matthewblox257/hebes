@@ -1,0 +1,28 @@
+{
+    "nextPaletteID": 1,
+    "palettes": {
+        "custom0": {
+            "id": "custom0",
+            "name": "Black and White",
+            "colors": [
+                "#000000",
+                "#FFFFFF",
+                "#0DBD00",
+                "#04FF00",
+                "#AD0000",
+                "#FF0000",
+                "#5E0080",
+                "#9900FF",
+                "#FFFFFF",
+                "#EDEDED",
+                "#D1D1D1",
+                "#ADADAD",
+                "#7D7D7D",
+                "#575757",
+                "#2B2B2B",
+                "#000000"
+            ],
+            "custom": true
+        }
+    }
+}
