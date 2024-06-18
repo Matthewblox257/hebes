@@ -12,6 +12,7 @@ namespace SpriteKind {
     export const Blurt = SpriteKind.create()
     export const Boss2 = SpriteKind.create()
     export const Hover = SpriteKind.create()
+    export const Cycle = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
@@ -3888,6 +3889,98 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile32`, function (sprite, 
         mySprite.sayText("A", 50, false)
     }
 })
+controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    if (GameStart == 0) {
+        if (Orb == 1.5) {
+            if (CycleLevel < 8) {
+                Orb = 1
+                GameStart = 1
+                controller.moveSprite(mySprite, 70, 0)
+                CycleLevel = 0
+                music.play(music.createSoundEffect(
+                WaveShape.Noise,
+                2089,
+                1,
+                600,
+                0,
+                300,
+                SoundExpressionEffect.Vibrato,
+                InterpolationCurve.Logarithmic
+                ), music.PlaybackMode.InBackground)
+                mySprite5.setImage(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . d d d d d d . . . . . 
+                    . . . . d d d d d d d d . . . . 
+                    . . . d d d d d d d d d d . . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . d d d d d f f d d d d d . . 
+                    . . d d d d d f f d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . e d d d d d d d d d d e . . 
+                    . . . e d d d d d d d d e . . . 
+                    . . . . e d d d d d d e . . . . 
+                    . . . . . e e e e e e . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `)
+                animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+                characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
+            } else {
+                if (CycleLevel >= 8) {
+                    Orb = 2
+                    GameStart = 0
+                    controller.moveSprite(mySprite, 100, 100)
+                    mySprite.ay = 0
+                    CycleLevel = 8
+                    music.play(music.createSoundEffect(
+                    WaveShape.Noise,
+                    1873,
+                    1,
+                    600,
+                    0,
+                    1200,
+                    SoundExpressionEffect.Tremolo,
+                    InterpolationCurve.Logarithmic
+                    ), music.PlaybackMode.InBackground)
+                    mySprite5.setImage(img`
+                        . . . . . . . . . . . . . . . . 
+                        . . . . . . . . . . . . . . . . 
+                        . . . . . 3 3 3 3 3 3 . . . . . 
+                        . . . . 3 3 3 3 3 3 3 3 . . . . 
+                        . . . 3 3 3 3 3 3 3 3 3 3 . . . 
+                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                        . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                        . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                        . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+                        . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+                        . . . . 2 3 3 3 3 3 3 2 . . . . 
+                        . . . . . 2 2 2 2 2 2 . . . . . 
+                        . . . . . . . . . . . . . . . . 
+                        `)
+                    mySprite.setImage(img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . f f . . . 
+                        . . f f f f . . 
+                        . f f 1 f 1 f . 
+                        . f f f f f f . 
+                        . . f f f f . . 
+                        . . . f f . . . 
+                        `)
+                    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+                    SubCycle()
+                } else {
+                	
+                }
+            }
+        }
+    }
+})
 scene.onOverlapTile(SpriteKind.Boss, assets.tile`myTile53`, function (sprite, location) {
     sprite.setKind(SpriteKind.Nothing)
     info.setLife(0)
@@ -4475,6 +4568,217 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.BuzzSaw, function (sprite, other
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
+function SubCycle () {
+    if (Orb == 2) {
+        CycleLevel += -1
+        if (CycleLevel == 1) {
+            mySprite5.setImage(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . d d d 3 3 3 . . . . . 
+                . . . . d d d d 3 3 3 3 . . . . 
+                . . . d d d d d 3 3 3 3 d . . . 
+                . . d d d d d d 3 3 3 d d d . . 
+                . . d d d d d d 3 3 d d d d . . 
+                . . d d d d d f f d d d d d . . 
+                . . d d d d d f f d d d d d . . 
+                . . d d d d d d d d d d d d . . 
+                . . d d d d d d d d d d d d . . 
+                . . e d d d d d d d d d d e . . 
+                . . . e d d d d d d d d e . . . 
+                . . . . e d d d d d d e . . . . 
+                . . . . . e e e e e e . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `)
+        } else {
+            if (CycleLevel == 2) {
+                mySprite5.setImage(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . d d d 3 3 3 . . . . . 
+                    . . . . d d d d 3 3 3 3 . . . . 
+                    . . . d d d d d 3 3 3 3 3 . . . 
+                    . . d d d d d d 3 3 3 3 3 3 . . 
+                    . . d d d d d d 3 3 3 3 3 3 . . 
+                    . . d d d d d f f 3 3 3 3 3 . . 
+                    . . d d d d d f f d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . e d d d d d d d d d d e . . 
+                    . . . e d d d d d d d d e . . . 
+                    . . . . e d d d d d d e . . . . 
+                    . . . . . e e e e e e . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `)
+            } else {
+                if (CycleLevel == 3) {
+                    mySprite5.setImage(img`
+                        . . . . . . . . . . . . . . . . 
+                        . . . . . . . . . . . . . . . . 
+                        . . . . . d d d 3 3 3 . . . . . 
+                        . . . . d d d d 3 3 3 3 . . . . 
+                        . . . d d d d d 3 3 3 3 3 . . . 
+                        . . d d d d d d 3 3 3 3 3 3 . . 
+                        . . d d d d d d 3 3 3 3 3 3 . . 
+                        . . d d d d d f f 3 3 3 3 3 . . 
+                        . . d d d d d f f 3 3 3 3 3 . . 
+                        . . d d d d d d d 3 3 3 3 3 . . 
+                        . . d d d d d d d d 3 3 3 3 . . 
+                        . . e d d d d d d d d 3 3 2 . . 
+                        . . . e d d d d d d d d 2 . . . 
+                        . . . . e d d d d d d e . . . . 
+                        . . . . . e e e e e e . . . . . 
+                        . . . . . . . . . . . . . . . . 
+                        `)
+                } else {
+                    if (CycleLevel == 4) {
+                        mySprite5.setImage(img`
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . d d d 3 3 3 . . . . . 
+                            . . . . d d d d 3 3 3 3 . . . . 
+                            . . . d d d d d 3 3 3 3 3 . . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . d d d d d f f 3 3 3 3 3 . . 
+                            . . d d d d d f f 3 3 3 3 3 . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . e d d d d d 3 3 3 3 3 2 . . 
+                            . . . e d d d d 3 3 3 3 2 . . . 
+                            . . . . e d d d 3 3 3 2 . . . . 
+                            . . . . . e e e 2 2 2 . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            `)
+                    } else {
+                        if (CycleLevel == 5) {
+                            mySprite5.setImage(img`
+                                . . . . . . . . . . . . . . . . 
+                                . . . . . . . . . . . . . . . . 
+                                . . . . . d d d 3 3 3 . . . . . 
+                                . . . . d d d d 3 3 3 3 . . . . 
+                                . . . d d d d d 3 3 3 3 3 . . . 
+                                . . d d d d d d 3 3 3 3 3 3 . . 
+                                . . d d d d d d 3 3 3 3 3 3 . . 
+                                . . d d d d d f f 3 3 3 3 3 . . 
+                                . . d d d d d f f 3 3 3 3 3 . . 
+                                . . d d d d 3 3 3 3 3 3 3 3 . . 
+                                . . d d d 3 3 3 3 3 3 3 3 3 . . 
+                                . . e d 3 3 3 3 3 3 3 3 3 2 . . 
+                                . . . e 3 3 3 3 3 3 3 3 2 . . . 
+                                . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                . . . . . 2 2 2 2 2 2 . . . . . 
+                                . . . . . . . . . . . . . . . . 
+                                `)
+                        } else {
+                            if (CycleLevel == 6) {
+                                mySprite5.setImage(img`
+                                    . . . . . . . . . . . . . . . . 
+                                    . . . . . . . . . . . . . . . . 
+                                    . . . . . d d d 3 3 3 . . . . . 
+                                    . . . . d d d d 3 3 3 3 . . . . 
+                                    . . . d d d d d 3 3 3 3 3 . . . 
+                                    . . d d d d d d 3 3 3 3 3 3 . . 
+                                    . . d d d d d d 3 3 3 3 3 3 . . 
+                                    . . d d d d d f f 3 3 3 3 3 . . 
+                                    . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                    . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                    . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                    . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+                                    . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+                                    . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                    . . . . . 2 2 2 2 2 2 . . . . . 
+                                    . . . . . . . . . . . . . . . . 
+                                    `)
+                            } else {
+                                if (CycleLevel == 7) {
+                                    mySprite5.setImage(img`
+                                        . . . . . . . . . . . . . . . . 
+                                        . . . . . . . . . . . . . . . . 
+                                        . . . . . d d d 3 3 3 . . . . . 
+                                        . . . . d d d d 3 3 3 3 . . . . 
+                                        . . . 3 3 d d d 3 3 3 3 3 . . . 
+                                        . . 3 3 3 3 d d 3 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 d 3 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                        . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+                                        . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+                                        . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                        . . . . . 2 2 2 2 2 2 . . . . . 
+                                        . . . . . . . . . . . . . . . . 
+                                        `)
+                                } else {
+                                    if (CycleLevel == 0) {
+                                        mySprite5.setImage(img`
+                                            . . . . . . . . . . . . . . . . 
+                                            . . . . . . . . . . . . . . . . 
+                                            . . . . . d d d d d d . . . . . 
+                                            . . . . d d d d d d d d . . . . 
+                                            . . . d d d d d d d d d d . . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . d d d d d f f d d d d d . . 
+                                            . . d d d d d f f d d d d d . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . e d d d d d d d d d d e . . 
+                                            . . . e d d d d d d d d e . . . 
+                                            . . . . e d d d d d d e . . . . 
+                                            . . . . . e e e e e e . . . . . 
+                                            . . . . . . . . . . . . . . . . 
+                                            `)
+                                        Orb = 1
+                                        GameStart = 1
+                                        controller.moveSprite(mySprite, 70, 0)
+                                        mySprite.ay = 180
+                                        CycleLevel = 0
+                                        music.play(music.createSoundEffect(
+                                        WaveShape.Noise,
+                                        694,
+                                        633,
+                                        600,
+                                        0,
+                                        600,
+                                        SoundExpressionEffect.Vibrato,
+                                        InterpolationCurve.Logarithmic
+                                        ), music.PlaybackMode.InBackground)
+                                        mySprite5.setImage(img`
+                                            . . . . . . . . . . . . . . . . 
+                                            . . . . . . . . . . . . . . . . 
+                                            . . . . . d d d d d d . . . . . 
+                                            . . . . d d d d d d d d . . . . 
+                                            . . . d d d d d d d d d d . . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . d d d d d f f d d d d d . . 
+                                            . . d d d d d f f d d d d d . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . d d d d d d d d d d d d . . 
+                                            . . e d d d d d d d d d d e . . 
+                                            . . . e d d d d d d d d e . . . 
+                                            . . . . e d d d d d d e . . . . 
+                                            . . . . . e e e e e e . . . . . 
+                                            . . . . . . . . . . . . . . . . 
+                                            `)
+                                        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+                                        characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
+                                    } else {
+                                        CycleLevel = 0
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        pause(200)
+        SubCycle()
+    }
+}
 sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Saw, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
     characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
@@ -10802,6 +11106,55 @@ sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Shot, function (sprite, otherSpri
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (GameStart == 1) {
+        if (Orb == 1) {
+            if (mySprite.vx == 0) {
+                if (mySprite.vy == 0) {
+                    Orb = 1.5
+                    GameStart = 0
+                    controller.moveSprite(mySprite, 0, 0)
+                    music.play(music.createSoundEffect(
+                    WaveShape.Noise,
+                    5000,
+                    1,
+                    600,
+                    0,
+                    300,
+                    SoundExpressionEffect.Vibrato,
+                    InterpolationCurve.Logarithmic
+                    ), music.PlaybackMode.InBackground)
+                    characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
+                    animation.runImageAnimation(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        3 . . . 3 . 3 . 
+                        3 . . . 3 3 3 . 
+                        . 3 3 3 3 3 3 . 
+                        . . 3 3 3 3 3 . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        2 . . . 2 . 2 . 
+                        2 . . . 2 2 2 . 
+                        . 2 2 2 2 2 2 . 
+                        . . 2 2 2 2 2 . 
+                        `],
+                    200,
+                    true
+                    )
+                    AddCycle()
+                }
+            }
+        }
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -11322,6 +11675,9 @@ function Menu () {
     controller.moveSprite(mySprite, 70, 0)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(2, 13))
     scene.cameraFollowSprite(mySprite)
+    if (Level15Done >= 1) {
+        mySprite5.setFlag(SpriteFlag.Invisible, true)
+    }
     tileUtil.coverAllTiles(assets.tile`myTile2`, assets.tile`myTile3`)
     tileUtil.coverAllTiles(assets.tile`myTile26`, assets.tile`myTile3`)
     tileUtil.coverAllTiles(assets.tile`myTile27`, assets.tile`myTile3`)
@@ -11658,6 +12014,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
             sprites.destroyAllSpritesOfKind(SpriteKind.Saw)
             sprites.destroyAllSpritesOfKind(SpriteKind.Hover)
             sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Spout)
             GameStart = 0
             music.stopAllSounds()
             if (PlayingLevel == 5) {
@@ -11774,19 +12131,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 )
             }
             if (PlayingLevel == 15) {
-                mySprite3.setImage(img`
-                    . 4 . . . . 4 . 
-                    . 4 4 . . 4 4 . 
-                    . 4 4 4 1 1 1 . 
-                    . 4 1 4 1 1 1 . 
-                    . 4 4 4 1 1 1 . 
-                    . 4 . 4 . 4 . . 
-                    . . 4 . 4 . 4 . 
-                    . 4 4 4 4 4 4 . 
-                    `)
                 mySprite3.setKind(SpriteKind.Nothing)
                 mySprite3.vx = 0
-                characterAnimations.setCharacterAnimationsEnabled(mySprite3, false)
                 animation.runImageAnimation(
                 mySprite3,
                 [img`
@@ -11876,6 +12222,182 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
         mySprite.sayText("A", 50, false)
     }
 })
+function AddCycle () {
+    if (Orb == 1.5) {
+        CycleLevel += 1
+        if (CycleLevel == 1) {
+            mySprite5.setImage(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . d d d 3 3 3 . . . . . 
+                . . . . d d d d 3 3 3 3 . . . . 
+                . . . d d d d d 3 3 3 3 d . . . 
+                . . d d d d d d 3 3 3 d d d . . 
+                . . d d d d d d 3 3 d d d d . . 
+                . . d d d d d f f d d d d d . . 
+                . . d d d d d f f d d d d d . . 
+                . . d d d d d d d d d d d d . . 
+                . . d d d d d d d d d d d d . . 
+                . . e d d d d d d d d d d e . . 
+                . . . e d d d d d d d d e . . . 
+                . . . . e d d d d d d e . . . . 
+                . . . . . e e e e e e . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `)
+        } else {
+            if (CycleLevel == 2) {
+                mySprite5.setImage(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . d d d 3 3 3 . . . . . 
+                    . . . . d d d d 3 3 3 3 . . . . 
+                    . . . d d d d d 3 3 3 3 3 . . . 
+                    . . d d d d d d 3 3 3 3 3 3 . . 
+                    . . d d d d d d 3 3 3 3 3 3 . . 
+                    . . d d d d d f f 3 3 3 3 3 . . 
+                    . . d d d d d f f d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . d d d d d d d d d d d d . . 
+                    . . e d d d d d d d d d d e . . 
+                    . . . e d d d d d d d d e . . . 
+                    . . . . e d d d d d d e . . . . 
+                    . . . . . e e e e e e . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `)
+            } else {
+                if (CycleLevel == 3) {
+                    mySprite5.setImage(img`
+                        . . . . . . . . . . . . . . . . 
+                        . . . . . . . . . . . . . . . . 
+                        . . . . . d d d 3 3 3 . . . . . 
+                        . . . . d d d d 3 3 3 3 . . . . 
+                        . . . d d d d d 3 3 3 3 3 . . . 
+                        . . d d d d d d 3 3 3 3 3 3 . . 
+                        . . d d d d d d 3 3 3 3 3 3 . . 
+                        . . d d d d d f f 3 3 3 3 3 . . 
+                        . . d d d d d f f 3 3 3 3 3 . . 
+                        . . d d d d d d d 3 3 3 3 3 . . 
+                        . . d d d d d d d d 3 3 3 3 . . 
+                        . . e d d d d d d d d 3 3 2 . . 
+                        . . . e d d d d d d d d 2 . . . 
+                        . . . . e d d d d d d e . . . . 
+                        . . . . . e e e e e e . . . . . 
+                        . . . . . . . . . . . . . . . . 
+                        `)
+                } else {
+                    if (CycleLevel == 4) {
+                        mySprite5.setImage(img`
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . d d d 3 3 3 . . . . . 
+                            . . . . d d d d 3 3 3 3 . . . . 
+                            . . . d d d d d 3 3 3 3 3 . . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . d d d d d f f 3 3 3 3 3 . . 
+                            . . d d d d d f f 3 3 3 3 3 . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . d d d d d d 3 3 3 3 3 3 . . 
+                            . . e d d d d d 3 3 3 3 3 2 . . 
+                            . . . e d d d d 3 3 3 3 2 . . . 
+                            . . . . e d d d 3 3 3 2 . . . . 
+                            . . . . . e e e 2 2 2 . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            `)
+                    } else {
+                        if (CycleLevel == 5) {
+                            mySprite5.setImage(img`
+                                . . . . . . . . . . . . . . . . 
+                                . . . . . . . . . . . . . . . . 
+                                . . . . . d d d 3 3 3 . . . . . 
+                                . . . . d d d d 3 3 3 3 . . . . 
+                                . . . d d d d d 3 3 3 3 3 . . . 
+                                . . d d d d d d 3 3 3 3 3 3 . . 
+                                . . d d d d d d 3 3 3 3 3 3 . . 
+                                . . d d d d d f f 3 3 3 3 3 . . 
+                                . . d d d d d f f 3 3 3 3 3 . . 
+                                . . d d d d 3 3 3 3 3 3 3 3 . . 
+                                . . d d d 3 3 3 3 3 3 3 3 3 . . 
+                                . . e d 3 3 3 3 3 3 3 3 3 2 . . 
+                                . . . e 3 3 3 3 3 3 3 3 2 . . . 
+                                . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                . . . . . 2 2 2 2 2 2 . . . . . 
+                                . . . . . . . . . . . . . . . . 
+                                `)
+                        } else {
+                            if (CycleLevel == 6) {
+                                mySprite5.setImage(img`
+                                    . . . . . . . . . . . . . . . . 
+                                    . . . . . . . . . . . . . . . . 
+                                    . . . . . d d d 3 3 3 . . . . . 
+                                    . . . . d d d d 3 3 3 3 . . . . 
+                                    . . . d d d d d 3 3 3 3 3 . . . 
+                                    . . d d d d d d 3 3 3 3 3 3 . . 
+                                    . . d d d d d d 3 3 3 3 3 3 . . 
+                                    . . d d d d d f f 3 3 3 3 3 . . 
+                                    . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                    . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                    . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                    . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+                                    . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+                                    . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                    . . . . . 2 2 2 2 2 2 . . . . . 
+                                    . . . . . . . . . . . . . . . . 
+                                    `)
+                            } else {
+                                if (CycleLevel == 7) {
+                                    mySprite5.setImage(img`
+                                        . . . . . . . . . . . . . . . . 
+                                        . . . . . . . . . . . . . . . . 
+                                        . . . . . d d d 3 3 3 . . . . . 
+                                        . . . . d d d d 3 3 3 3 . . . . 
+                                        . . . 3 3 d d d 3 3 3 3 3 . . . 
+                                        . . 3 3 3 3 d d 3 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 d 3 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                        . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                        . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+                                        . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+                                        . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                        . . . . . 2 2 2 2 2 2 . . . . . 
+                                        . . . . . . . . . . . . . . . . 
+                                        `)
+                                } else {
+                                    if (CycleLevel == 8) {
+                                        mySprite5.setImage(img`
+                                            . . . . . . . . . . . . . . . . 
+                                            . . . . . . . . . . . . . . . . 
+                                            . . . . . 3 3 3 3 3 3 . . . . . 
+                                            . . . . 3 3 3 3 3 3 3 3 . . . . 
+                                            . . . 3 3 3 3 3 3 3 3 3 3 . . . 
+                                            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                            . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                            . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+                                            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+                                            . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+                                            . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+                                            . . . . 2 3 3 3 3 3 3 2 . . . . 
+                                            . . . . . 2 2 2 2 2 2 . . . . . 
+                                            . . . . . . . . . . . . . . . . 
+                                            `)
+                                    } else {
+                                        CycleLevel = 8
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        pause(100)
+        AddCycle()
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile88`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -12570,9 +13092,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, 
 })
 let Shooter = 0
 let mySprite2: Sprite = null
-let Orb = 0
 let Level15Done = 0
-let Level10Done = 0
 let textSprite: TextSprite = null
 let Level9Done = 0
 let Level11Done = 0
@@ -12586,9 +13106,9 @@ let Level4Done = 0
 let Level3Done = 0
 let Level2Done = 0
 let Level1Done = 0
+let CycleLevel = 0
 let mySprite4: Sprite = null
 let LevelsDone = 0
-let Phase = 0
 let textSprite2: TextSprite = null
 let Skin = 0
 let myMenu: miniMenu.MenuSprite = null
@@ -12597,28 +13117,54 @@ let mySprite3: Sprite = null
 let PlayingLevel = 0
 let GameStart = 0
 let ExtraJump = 0
-let Level5Done = 0
 let mySprite: Sprite = null
+let mySprite5: Sprite = null
+let Phase = 0
+let Orb = 0
+let Level5Done = 0
+let Level10Done = 0
+Level10Done = 2
+Level5Done = 2
+Orb = 1
+Phase = 1
 music.stopAllSounds()
+mySprite5 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . d d d d d d . . . . . 
+    . . . . d d d d d d d d . . . . 
+    . . . d d d d d d d d d d . . . 
+    . . d d d d d d d d d d d d . . 
+    . . d d d d d d d d d d d d . . 
+    . . d d d d d f f d d d d d . . 
+    . . d d d d d f f d d d d d . . 
+    . . d d d d d d d d d d d d . . 
+    . . d d d d d d d d d d d d . . 
+    . . e d d d d d d d d d d e . . 
+    . . . e d d d d d d d d e . . . 
+    . . . . e d d d d d d e . . . . 
+    . . . . . e e e e e e . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Cycle)
+mySprite5.setFlag(SpriteFlag.RelativeToCamera, true)
+mySprite5.setPosition(153, 7)
 Menu()
 game.onUpdateInterval(1000, function () {
     Shooter = 0
     for (let value of tiles.getTilesByType(assets.tile`myTile64`)) {
-        if (GameStart == 1) {
-            Shooter = 1
-            mySprite2 = sprites.create(img`
-                . . . 5 5 . . . 
-                . . . 5 5 . . . 
-                . . 5 4 4 5 . . 
-                . . 5 4 4 5 . . 
-                . 5 4 f f 4 5 . 
-                . . . f f . . . 
-                . . . f f . . . 
-                . . . . . . . . 
-                `, SpriteKind.Shot)
-            mySprite2.setVelocity(0, -100)
-            tiles.placeOnTile(mySprite2, value)
-        }
+        Shooter = 1
+        mySprite2 = sprites.create(img`
+            . . . 5 5 . . . 
+            . . . 5 5 . . . 
+            . . 5 4 4 5 . . 
+            . . 5 4 4 5 . . 
+            . 5 4 f f 4 5 . 
+            . . . f f . . . 
+            . . . f f . . . 
+            . . . . . . . . 
+            `, SpriteKind.Shot)
+        mySprite2.setVelocity(0, -100)
+        tiles.placeOnTile(mySprite2, value)
     }
     if (Shooter == 1) {
         music.play(music.createSoundEffect(
@@ -12636,33 +13182,31 @@ game.onUpdateInterval(1000, function () {
 game.onUpdateInterval(1000, function () {
     Shooter = 0
     for (let value of tiles.getTilesByType(assets.tile`myTile74`)) {
-        if (GameStart == 1) {
-            timer.after(randint(500, 1000), function () {
-                Shooter = 1
-                mySprite2 = sprites.create(img`
-                    . . . 7 7 . . . 
-                    . . . 7 7 . . . 
-                    . . 7 6 6 7 . . 
-                    . . 7 6 6 7 . . 
-                    . 7 6 f f 6 7 . 
-                    . . . f f . . . 
-                    . . . f f . . . 
-                    . . . . . . . . 
-                    `, SpriteKind.Shot)
-                mySprite2.setVelocity(0, -70)
-                tiles.placeOnTile(mySprite2, value)
-                music.play(music.createSoundEffect(
-                WaveShape.Sawtooth,
-                1,
-                2663,
-                100,
-                100,
-                80,
-                SoundExpressionEffect.Warble,
-                InterpolationCurve.Linear
-                ), music.PlaybackMode.InBackground)
-            })
-        }
+        timer.after(randint(500, 1000), function () {
+            Shooter = 1
+            mySprite2 = sprites.create(img`
+                . . . 7 7 . . . 
+                . . . 7 7 . . . 
+                . . 7 6 6 7 . . 
+                . . 7 6 6 7 . . 
+                . 7 6 f f 6 7 . 
+                . . . f f . . . 
+                . . . f f . . . 
+                . . . . . . . . 
+                `, SpriteKind.Shot)
+            mySprite2.setVelocity(0, -70)
+            tiles.placeOnTile(mySprite2, value)
+            music.play(music.createSoundEffect(
+            WaveShape.Sawtooth,
+            1,
+            2663,
+            100,
+            100,
+            80,
+            SoundExpressionEffect.Warble,
+            InterpolationCurve.Linear
+            ), music.PlaybackMode.InBackground)
+        })
     }
 })
 forever(function () {
