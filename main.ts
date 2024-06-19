@@ -64,6 +64,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSp
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Scorchup, function (sprite, otherSprite) {
     otherSprite.setKind(SpriteKind.Nothing)
     timer.after(300, function () {
+        extraEffects.createSpreadEffectOnAnchor(otherSprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
         otherSprite.setKind(SpriteKind.Spike)
         otherSprite.setImage(img`
             . . . . . . . . 
@@ -131,6 +132,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
                 ExtraJump = 0
                 mySprite.vy = 0
                 mySprite.vy += -65
+                extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(10, ExtraEffectPresetShape.Spark), 100, 24, 40)
                 if (PlayingLevel == 10) {
                     music.play(music.createSoundEffect(
                     WaveShape.Sawtooth,
@@ -465,6 +467,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile58`, function (sprite, 
                 music.play(music.createSong(hex`00a0000408020200001c00010a006400f4016400000400000000000000000000000000050000041e0000000200011902000400011b04000600011d06000800011e08000a00012009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80008000000010003090a0b`), music.PlaybackMode.InBackground)
                 if (selectedIndex == 3) {
                     if (Perfects >= 15) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(6, ExtraEffectPresetShape.Spark), 100)
                         characterAnimations.loopFrames(
                         mySprite,
                         [img`
@@ -1007,6 +1010,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile58`, function (sprite, 
                 }
                 if (selectedIndex == 4) {
                     if (Perfects >= 23) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(3, ExtraEffectPresetShape.Spark), 100)
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
                         characterAnimations.loopFrames(
                         mySprite,
                         [img`
@@ -1666,6 +1672,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile58`, function (sprite, 
                 }
                 if (selectedIndex == 2) {
                     if (Perfects >= 9) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(3, ExtraEffectPresetShape.Spark), 100)
                         characterAnimations.loopFrames(
                         mySprite,
                         [img`
@@ -2433,6 +2440,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile58`, function (sprite, 
                 }
                 if (selectedIndex == 1) {
                     if (Perfects >= 3) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Spark), 100)
                         characterAnimations.loopFrames(
                         mySprite,
                         [img`
@@ -2911,6 +2919,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile58`, function (sprite, 
                     }
                 }
                 if (selectedIndex == 0) {
+                    extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(14, ExtraEffectPresetShape.Spark), 100)
                     characterAnimations.loopFrames(
                     mySprite,
                     [img`
@@ -3929,6 +3938,7 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
                 characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
             } else {
                 if (CycleLevel >= 8) {
+                    extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(14, ExtraEffectPresetShape.Spark), 1800, 33, 60)
                     Orb = 2
                     GameStart = 0
                     controller.moveSprite(mySprite, 100, 100)
@@ -4081,6 +4091,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Shot, function (sprite, otherSpr
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile42`, function (sprite, location) {
     if (info.life() < 3) {
         tiles.setTileAt(location, assets.tile`myTile43`)
+        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
         info.changeLifeBy(1)
         music.play(music.createSoundEffect(
         WaveShape.Triangle,
@@ -4850,6 +4861,7 @@ sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Setup, function (sprite, otherSpr
     otherSprite.setKind(SpriteKind.Nothing)
     timer.after(500, function () {
         otherSprite.setKind(SpriteKind.Spike)
+        extraEffects.createSpreadEffectOnAnchor(otherSprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
         otherSprite.setImage(img`
             . . . . . . . . 
             . . . 5 5 . . . 
@@ -7883,6 +7895,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, 
     if (controller.A.isPressed()) {
         timer.after(1, function () {
             tiles.setTileAt(location, assets.tile`transparency8`)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(9, ExtraEffectPresetShape.Spark), 5000, 100)
             sprites.destroyAllSpritesOfKind(SpriteKind.Spike)
             sprites.destroyAllSpritesOfKind(SpriteKind.Setup)
             sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
@@ -11676,7 +11689,7 @@ function Menu () {
     tiles.placeOnTile(mySprite, tiles.getTileLocation(2, 13))
     scene.cameraFollowSprite(mySprite)
     if (Level15Done >= 1) {
-        mySprite5.setFlag(SpriteFlag.Invisible, true)
+        mySprite5.setFlag(SpriteFlag.Invisible, false)
     }
     tileUtil.coverAllTiles(assets.tile`myTile2`, assets.tile`myTile3`)
     tileUtil.coverAllTiles(assets.tile`myTile26`, assets.tile`myTile3`)
@@ -11976,6 +11989,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile99`, function (sprite, 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Setup, function (sprite, otherSprite) {
     otherSprite.setKind(SpriteKind.Nothing)
     timer.after(500, function () {
+        extraEffects.createSpreadEffectOnAnchor(otherSprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
         otherSprite.setKind(SpriteKind.Spike)
         otherSprite.setImage(img`
             . . . . . . . . 
@@ -12007,6 +12021,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
     if (controller.A.isPressed()) {
         timer.after(1, function () {
             tiles.setTileAt(location, assets.tile`transparency8`)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(9, ExtraEffectPresetShape.Spark), 5000, 100)
             tileUtil.replaceAllTiles(assets.tile`myTile51`, assets.tile`transparency8`)
             sprites.destroyAllSpritesOfKind(SpriteKind.Spike)
             sprites.destroyAllSpritesOfKind(SpriteKind.Setup)
@@ -12384,8 +12399,10 @@ function AddCycle () {
                                             . . . . . 2 2 2 2 2 2 . . . . . 
                                             . . . . . . . . . . . . . . . . 
                                             `)
+                                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(2, ExtraEffectPresetShape.Spark), 100)
                                     } else {
                                         CycleLevel = 8
+                                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(2, ExtraEffectPresetShape.Spark), 100)
                                     }
                                 }
                             }
@@ -13077,6 +13094,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile28`, function (sprite, 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, location) {
     if (info.life() < 3) {
         tiles.setTileAt(location, assets.tile`myTile43`)
+        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
         info.changeLifeBy(2)
         music.play(music.createSoundEffect(
         WaveShape.Triangle,
@@ -13163,6 +13181,7 @@ game.onUpdateInterval(1000, function () {
             . . . f f . . . 
             . . . . . . . . 
             `, SpriteKind.Shot)
+        extraEffects.createSpreadEffectOnAnchor(mySprite2, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100, 12, 10)
         mySprite2.setVelocity(0, -100)
         tiles.placeOnTile(mySprite2, value)
     }
@@ -13194,6 +13213,7 @@ game.onUpdateInterval(1000, function () {
                 . . . f f . . . 
                 . . . . . . . . 
                 `, SpriteKind.Shot)
+            extraEffects.createSpreadEffectOnAnchor(mySprite2, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100, 12, 10)
             mySprite2.setVelocity(0, -70)
             tiles.placeOnTile(mySprite2, value)
             music.play(music.createSoundEffect(

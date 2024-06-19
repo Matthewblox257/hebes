@@ -15,7 +15,8 @@
         "animation": "*",
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
-        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0"
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "Extra Effects": "github:alexszeto/extra-effects#v3.1.0"
     },
     "files": [
         "main.blocks",
