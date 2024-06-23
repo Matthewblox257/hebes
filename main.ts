@@ -63,7 +63,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSp
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Scorchup, function (sprite, otherSprite) {
     otherSprite.setKind(SpriteKind.Nothing)
-    timer.after(300, function () {
+    timer.after(500, function () {
         extraEffects.createSpreadEffectOnAnchor(otherSprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
         otherSprite.setKind(SpriteKind.Spike)
         otherSprite.setImage(img`
@@ -175,11 +175,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile92`, function (sprite, 
             controller.moveSprite(mySprite, 70, 0)
             sprites.destroyAllSpritesOfKind(SpriteKind.Text)
             color.startFadeFromCurrent(color.originalPalette, 1000)
-            PlayingLevel = 14
+            PlayingLevel = 17
             tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level42`))
             tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
             textSprite2 = textsprite.create("And I'm a worthless nothing who can only make mistakes.", 1, 6)
-            tiles.placeOnTile(textSprite2, tiles.getTileLocation(21, 7))
+            tiles.placeOnTile(textSprite2, tiles.getTileLocation(22, 7))
             profilelife.setFilledLifeImage(img`
                 . . . . . . . . 
                 . e e . . f f . 
@@ -4152,6 +4152,57 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile42`, function (sprite, 
         ), music.PlaybackMode.InBackground)
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile124`, function (sprite, location) {
+    if (Orb == 2) {
+        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(14, ExtraEffectPresetShape.Spark), 1800, 33, 60)
+        CycleLevel = 7
+        tiles.setTileAt(location, assets.tile`myTile125`)
+        mySprite5.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 3 3 3 3 3 3 . . . . . 
+            . . . . 3 3 3 3 3 3 3 3 . . . . 
+            . . . 3 3 3 3 3 3 3 3 3 3 . . . 
+            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+            . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+            . . 3 3 3 3 3 f f 3 3 3 3 3 . . 
+            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+            . . 2 3 3 3 3 3 3 3 3 3 3 2 . . 
+            . . . 2 3 3 3 3 3 3 3 3 2 . . . 
+            . . . . 2 3 3 3 3 3 3 2 . . . . 
+            . . . . . 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        music.play(music.createSoundEffect(
+        WaveShape.Triangle,
+        1,
+        1726,
+        400,
+        250,
+        500,
+        SoundExpressionEffect.Warble,
+        InterpolationCurve.Curve
+        ), music.PlaybackMode.InBackground)
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+        animation.runImageAnimation(
+        mySprite,
+        [img`
+            . . . . . . . . 
+            . . . . . . . . 
+            . . . f f . . . 
+            . . f f f f . . 
+            . f f 1 f 1 f . 
+            . f f f f f f . 
+            . . f f f f . . 
+            . . . f f . . . 
+            `],
+        100,
+        true
+        )
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile29`, function (sprite, location) {
     if (LevelsDone >= 3) {
         if (controller.A.isPressed()) {
@@ -8032,6 +8083,36 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, 
                     Level8Done = 2
                 }
             }
+            if (PlayingLevel == 18) {
+                if (Level18Done == 0) {
+                    Level18Done = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    Level18Done = 2
+                }
+            }
+            if (PlayingLevel == 17) {
+                if (Level17Done == 0) {
+                    Level17Done = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    Level17Done = 2
+                }
+            }
+            if (PlayingLevel == 16) {
+                if (Level16Done == 0) {
+                    Level16Done = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    Level16Done = 2
+                }
+            }
             if (PlayingLevel == 14) {
                 if (Level14Done == 0) {
                     Level14Done = 1
@@ -11131,7 +11212,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile91`, function (sprite, 
             controller.moveSprite(mySprite, 70, 0)
             sprites.destroyAllSpritesOfKind(SpriteKind.Text)
             color.startFadeFromCurrent(color.originalPalette, 1000)
-            PlayingLevel = 14
+            PlayingLevel = 16
             tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level41`))
             tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
             textSprite2 = textsprite.create("But I hate failing! It's so stupid!", 1, 15)
@@ -11212,6 +11293,53 @@ sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Shot, function (sprite, otherSpri
         mySprite3.setFlag(SpriteFlag.GhostThroughSprites, false)
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile93`, function (sprite, location) {
+    if (controller.A.isPressed()) {
+        timer.after(1, function () {
+            controller.moveSprite(mySprite, 0, 0)
+            tiles.setTileAt(location, assets.tile`transparency8`)
+            music.stopAllSounds()
+            music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000a0000000100050405060708`), music.PlaybackMode.InBackground)
+            scene.cameraShake(4, 500)
+            color.startFadeFromCurrent(color.White, 1000)
+            pause(5000)
+            controller.moveSprite(mySprite, 70, 0)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+            color.startFadeFromCurrent(color.originalPalette, 1000)
+            PlayingLevel = 18
+            tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level43`))
+            tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
+            textSprite2 = textsprite.create("And I build people up for for failure...", 1, 15)
+            tiles.placeOnTile(textSprite2, tiles.getTileLocation(18, 7))
+            profilelife.setFilledLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e 5 5 e f 4 4 f 
+                e 5 5 5 4 4 4 f 
+                e 5 5 5 4 4 4 f 
+                . e 5 5 4 4 f . 
+                . . e 5 4 f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setEmptyLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e d d e f e e f 
+                e d d d e e e f 
+                e d d d e e e f 
+                . e d d e e f . 
+                . . e d e f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setMaxLife(3)
+            info.setLife(3)
+            Simulate_Spikes()
+            music.play(music.createSong(hex`006e000408060400001c00010a006400f401640000040000000000000000000000000005000004d80100000200010d02000400019004000600011406000800010c08000a0001900a000c0001140c000e00018b0e001000019010001200011412001400010a14001600019016001800011418001a0001891a001c0001901c001e0001141e002000010820002200019022002400011424002600010626002800019028002a0001142a002c0001442c002e0001902e003000011430003200019032003400010f34003600010d36003800010c38003a00010f3c003e00019040004400010d44004800010d48004c0001904c005000019050005400011454005800011458005c00020d195c006000020d1960006200010d62006400019064006600011466006800010f68006a0001906a006c0001146c006e00010d6e007000019070007200011472007400010f74007600019076007800011478007a0001907a007c0001147c007e0001957e008000011480008400010d84008800010d88008c0001908c009000019090009400011494009800011498009c00020d199c00a000020d19a000a200010da200a4000190a400a6000114a600a8000190a800aa000114aa00ac000195ac00ae000114ae00b0000195b000b2000197b200b4000195b400b6000197b600b8000118b800ba000197ba00bc000118bc00be000119be00c000011803001c0001dc00690000045e01000400000000000000000000056400010400038a0000000c00010d0c001000010f10002000019020002c0001142c00300001933000380001123c004000019040004800010d48005000010d50005800010d58006000019060006800010d68007000010d70007800010d78008000019080008800010d88009000010d90009800010d9800a0000190a000a800010da800b000010db000b800010db800c000019007001c00020a006400f401640000040000000000000000000000000000000003600040004400010d48004c00010c50005400018b58005c00010a60006400010d68006c00010f70007400019078007c00011480008400010d88008c00010c90009400018b98009c00010aa000a400010da800ac00010fb000b4000190b800bc00011409010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80002010000010001040200030001060400050001061000110001061200130001061600170001061800190001062000210001042600270001062800290001042c002d0001063200330001063400350001063600370001063800390001044000410001044400450001064800490001064c004d0001065000510001045400550001065800590001065c005d0001066000610001046800690001146c006d0001147000710001047400750001147c007d0001148000810001048400850001068800890001068c008d0001069000910001049400950001069800990001069c009d000106a000a1000104ac00ad000114b000b1000104b400b5000114b800b9000114bc00bd000114`), music.PlaybackMode.LoopingInBackground)
+        })
+    } else {
+        mySprite.sayText("A", 50, false)
+    }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (GameStart == 1) {
@@ -11315,6 +11443,7 @@ info.onLifeZero(function () {
         color.startFade(color.White, color.originalPalette, 1000)
         tiles.placeOnRandomTile(mySprite, assets.tile`myTile41`)
         tiles.placeOnRandomTile(mySprite, assets.tile`myTile52`)
+        tileUtil.replaceAllTiles(assets.tile`myTile125`, assets.tile`myTile124`)
         music.play(music.createSoundEffect(
         WaveShape.Noise,
         2471,
@@ -11865,11 +11994,35 @@ function Menu () {
             Perfects += 1
         }
     }
+    if (Level18Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile93`, assets.tile`myTile18`)
+    } else {
+        if (Level18Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile93`, assets.tile`myTile49`)
+            Perfects += 1
+        }
+    }
     if (Level11Done == 1) {
         tileUtil.coverAllTiles(assets.tile`myTile86`, assets.tile`myTile18`)
     } else {
         if (Level11Done == 2) {
             tileUtil.coverAllTiles(assets.tile`myTile86`, assets.tile`myTile49`)
+            Perfects += 1
+        }
+    }
+    if (Level17Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile92`, assets.tile`myTile75`)
+    } else {
+        if (Level17Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile92`, assets.tile`myTile76`)
+            Perfects += 1
+        }
+    }
+    if (Level16Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile91`, assets.tile`myTile18`)
+    } else {
+        if (Level16Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile91`, assets.tile`myTile49`)
             Perfects += 1
         }
     }
@@ -13211,6 +13364,9 @@ let Level11Done = 0
 let Level12Done = 0
 let Level13Done = 0
 let Level14Done = 0
+let Level16Done = 0
+let Level17Done = 0
+let Level18Done = 0
 let Level8Done = 0
 let Level7Done = 0
 let Level6Done = 0
