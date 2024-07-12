@@ -14,6 +14,8 @@ namespace SpriteKind {
     export const Hover = SpriteKind.create()
     export const Cycle = SpriteKind.create()
     export const Boss3 = SpriteKind.create()
+    export const Angry = SpriteKind.create()
+    export const Laser = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
@@ -4250,6 +4252,53 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile124`, function (sprite,
         true
         )
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Laser, function (sprite, otherSprite) {
+    scene.cameraShake(4, 500)
+    characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        f . . . f . f . 
+        f . . . f f f . 
+        . f f f 1 f 1 . 
+        . . f f f f f . 
+        . f . . . f . f 
+        `,img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        5 . . . 5 . 5 . 
+        5 . . . 5 5 5 . 
+        . 5 5 5 4 5 4 . 
+        . . 5 5 5 5 5 . 
+        . 5 . . . 5 . 5 
+        `],
+    50,
+    true
+    )
+    music.play(music.createSoundEffect(
+    WaveShape.Noise,
+    2471,
+    2313,
+    600,
+    0,
+    200,
+    SoundExpressionEffect.Vibrato,
+    InterpolationCurve.Logarithmic
+    ), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+    mySprite.setFlag(SpriteFlag.GhostThroughSprites, true)
+    otherSprite.setKind(SpriteKind.Nothing)
+    timer.after(500, function () {
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+        otherSprite.setKind(SpriteKind.Laser)
+        mySprite.setFlag(SpriteFlag.GhostThroughSprites, false)
+        characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
+    })
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile29`, function (sprite, location) {
     if (LevelsDone >= 3) {
@@ -11352,6 +11401,20 @@ sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Shot, function (sprite, otherSpri
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
+scene.onOverlapTile(SpriteKind.Boss3, assets.tile`myTile127`, function (sprite, location) {
+    sprite.setKind(SpriteKind.Angry)
+    tiles.setTileAt(location, assets.tile`myTile54`)
+    sprite.setImage(img`
+        . . . 5 5 . . . 
+        . . 5 4 4 5 . . 
+        . 5 4 1 1 4 5 . 
+        5 4 f 1 1 f 4 5 
+        5 4 f f f f 4 5 
+        5 4 5 f f 5 4 5 
+        . 5 4 4 4 4 5 . 
+        . . 5 5 5 5 . . 
+        `)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile93`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -11705,6 +11768,64 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile95`, function (sprite, 
                 Simulate_Spikes()
                 music.play(music.createSong(hex`0064000408080600001c00010a006400f401640000040000000000000000000000000005000004280180008200011982008400012084008600019c86008800011b88008a0001198a008c0001208c008e00019c8e009000011b90009200011992009400012094009600019c96009800011b98009a0001199a009c0001209c009e00019c9e00a000011ba000a2000119a200a40001a1a400a600019ca600a800011ba800aa000119aa00ac0001a1ac00ae00019cae00b000011bb000b2000119b200b400011eb400b600019cb600b800011bb800ba000119ba00bc000120bc00be00019cbe00c000011bc000c2000119e000e2000119e200e4000120e400e600019ce600e800011be800ea000119ea00ec000120ec00ee00019cee00f000011bf000f2000119f200f4000120f400f6000119f600f8000120f800fa000119fa00fc000120fc00fe000125fe000001030d192503001c0001dc00690000045e0100040000000000000000000005640001040003600010001800019c18002000011b20003000019730004000011850005800019c58006000011b60007000019770008000011890009800019c9800a000011ba000b0000197b000c0000118d000d800019cd800e000011be000f0000197f0000001011805001c000f0a006400f4010a000004000000000000000000000000000000000232010000020001190400060001190a000c0001190c000e0001190e00100001192000220001192600280001192c002e0001192e00300001194000420001194600480001194a004c0001194c004e0001194e005000011960006200011962006400011966006800011968006a0001196c006e00011990009200011992009400010d94009600010d96009800011998009a00010d9a009c00010d9c009e0001199e00a000010db000b2000119b200b400010db400b600010db600b8000119b800ba00010dba00bc00010dbc00be000119be00c000010dd000d2000119d200d400010dd400d600010dd600d8000119d800da00010dda00dc00010ddc00de000119de00e000010df000f2000119f200f400010df400f600010df600f8000119f800fa00010dfa00fc00010dfc00fe000119fe000001010d07001c00020a006400f401640000040000000000000000000000000000000003e40000000200011910001200019c14001600012018001a00011b2000220001952400260001a12a002c0001a12e00300001a130003200011e38003a00012050005200019c54005600012058005a00011b6000620001956400660001956a006c0001956e007000019570007200019778007a00011480008200011990009200019c94009600012098009a00011ba000a2000195a400a60001a1aa00ac0001a1ae00b00001a1b000b200011eb800ba000120d000d200019cd400d6000120d800da00011be000e2000195e400e6000195ea00ec000195ee00f0000195f000f2000197f800fa00011408001c000e050046006603320000040a002d0000006400140001320002010002500100000200010d02000400010d04000600010d06000800010d0a000c00010d0c000e00010d0e001000010d20002200010d22002400010d24002600010d26002800010d2a002c00010d2c002e00010d2e003000010d40004200010d42004400010d44004600010d46004800010d4a004c00010d4c004e00010d4e005000010d60006200010d62006400010d64006600010d66006800010d6a006c00010d6c006e00010d6e007000010d80008200010d82008400010d84008600010d86008800010d8a008c00010d8c008e00010d8e009000010da000a200010da200a400010da400a600010da600a800010daa00ac00010dac00ae00010dae00b000010dc000c200010dc200c400010dc400c600010dc600c800010dca00cc00010dcc00ce00010dce00d000010de000e200010de200e400010de400e600010de600e800010dea00ec00010dec00ee00010dee00f000010d09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8006a010000010001030800090001031000110001031800190001032000210001032800290001033000310001033800390001034000410001034800490001035000510001035800590001036000610001036800690001037000710001037800790001038000810001038200830001068400850001068800890001038a008b0001068e008f0001069000910001039400950001069600970001069800990001039c009d000106a000a1000103a200a3000106a600a7000106a800a9000103aa00ab000106ac00ad000106b000b1000103b400b5000106b600b7000106b800b9000103bc00bd000106c000c10003151603c400c5000106c600c7000106c800c9000103ca00cb000106ce00cf000106d000d1000103d200d3000106d400d5000106d800d9000103dc00dd000106e000e1000103e400e5000106e600e7000106e800e9000103ea00eb000106ec00ed000106f000f1000103f200f3000106f600f7000106f800f9000103fc00fd000106`), music.PlaybackMode.LoopingInBackground)
                 controller.moveSprite(mySprite, 0, 0)
+                mySprite7 = sprites.create(img`
+                    ..444445544444..
+                    ...4445555444...
+                    ....44555544....
+                    ....44555544....
+                    .....455554.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    ................
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....451154.....
+                    .....455554.....
+                    ....44555544....
+                    ....44555544....
+                    ...4445555444...
+                    ..444445544444..
+                    `, SpriteKind.Laser)
                 mySprite3 = sprites.create(img`
                     . . . 5 5 . . . 
                     . . . 5 5 . . . 
@@ -11715,8 +11836,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile95`, function (sprite, 
                     . . 5 4 4 5 . . 
                     . . . 5 5 . . . 
                     `, SpriteKind.Boss3)
+                mySprite3.setBounceOnWall(true)
+                mySprite3.setVelocity(75, 0)
                 mySprite3.setScale(2, ScaleAnchor.Middle)
-                tiles.placeOnTile(mySprite3, tiles.getTileLocation(146, 11))
+                tiles.placeOnTile(mySprite3, tiles.getTileLocation(69, 11))
+                tiles.placeOnTile(mySprite7, tiles.getTileLocation(69, 4))
                 profilelife.setFilledLifeImage(img`
                     . . . . . . . . 
                     . e e . . f f . 
@@ -11739,7 +11863,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile95`, function (sprite, 
                     `)
                 profilelife.setMaxLife(3)
                 info.setLife(3)
-                PlayingLevel = 25
+                PlayingLevel = 20
                 scene.cameraShake(4, 1000)
                 mySprite4 = sprites.create(img`
                     ................................................................................................................................................................
@@ -12355,6 +12479,14 @@ function Menu () {
             Perfects += 1
         }
     }
+    if (Level20Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile95`, assets.tile`myTile55`)
+    } else {
+        if (Level20Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile95`, assets.tile`myTile56`)
+            Perfects += 1
+        }
+    }
     if (Level10Done >= 1) {
         tiles.setTileAt(tiles.getTileLocation(19, 6), assets.tile`myTile79`)
         tiles.setTileAt(tiles.getTileLocation(20, 6), assets.tile`myTile21`)
@@ -12666,6 +12798,45 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 true
                 )
             }
+            if (PlayingLevel == 20) {
+                mySprite3.setImage(img`
+                    . . . 5 5 . . . 
+                    . . . 5 5 . . . 
+                    . . 5 4 4 5 . . 
+                    . 5 4 1 1 4 5 . 
+                    5 4 1 1 1 1 4 5 
+                    5 5 4 1 1 4 5 5 
+                    . . 5 4 4 5 . . 
+                    . . . 5 5 . . . 
+                    `)
+                mySprite3.setKind(SpriteKind.Nothing)
+                mySprite3.vx = 0
+                characterAnimations.setCharacterAnimationsEnabled(mySprite3, false)
+                animation.runImageAnimation(
+                mySprite3,
+                [img`
+                    . . . 5 5 . . . 
+                    . . . 5 5 . . . 
+                    . . 5 4 4 5 . . 
+                    . 5 4 1 1 4 5 . 
+                    5 4 1 1 1 1 4 5 
+                    5 5 4 1 1 4 5 5 
+                    . . 5 4 4 5 . . 
+                    . . . 5 5 . . . 
+                    `,img`
+                    . . . 7 7 . . . 
+                    . . . 7 7 . . . 
+                    . . 7 6 6 7 . . 
+                    . 7 6 1 1 6 7 . 
+                    7 6 1 1 1 1 6 7 
+                    7 7 6 1 1 6 7 7 
+                    . . 7 6 6 7 . . 
+                    . . . 7 7 . . . 
+                    `],
+                75,
+                true
+                )
+            }
             if (PlayingLevel == 15) {
                 mySprite3.setKind(SpriteKind.Nothing)
                 mySprite3.vx = 0
@@ -12749,8 +12920,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                     Level15Done = 2
                 }
             }
+            if (PlayingLevel == 20) {
+                if (Level20Done == 0) {
+                    Level20Done = 1
+                    Shift = 1
+                }
+                if (info.life() == 3) {
+                    Level20Done = 2
+                }
+            }
             sprites.destroyAllSpritesOfKind(SpriteKind.Player)
             sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Laser)
             Menu()
             PlayingLevel = 0
         })
@@ -13631,8 +13812,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, 
 })
 let Shooter = 0
 let mySprite2: Sprite = null
+let Shift = 0
+let Level20Done = 0
 let Level10Done = 0
 let mySprite6: Sprite = null
+let mySprite7: Sprite = null
 let Level9Done = 0
 let Level11Done = 0
 let Level12Done = 0
@@ -13693,6 +13877,17 @@ mySprite5.setFlag(SpriteFlag.RelativeToCamera, true)
 mySprite5.setPosition(153, 7)
 mySprite5.setFlag(SpriteFlag.Invisible, true)
 Menu()
+game.onUpdateInterval(50, function () {
+    if (PlayingLevel == 100) {
+        mySprite3.x = mySprite.x
+    } else {
+        if (PlayingLevel == 20) {
+            mySprite7.x = mySprite3.x
+        } else {
+        	
+        }
+    }
+})
 game.onUpdateInterval(1000, function () {
     Shooter = 0
     for (let value of tiles.getTilesByType(assets.tile`myTile64`)) {
@@ -13791,10 +13986,6 @@ game.onUpdateInterval(100, function () {
     if (PlayingLevel == 10) {
         mySprite3.x = mySprite.x
     } else {
-        if (PlayingLevel == 25) {
-            mySprite3.x = mySprite.x
-        } else {
-        	
-        }
+    	
     }
 })
