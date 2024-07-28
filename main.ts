@@ -12670,11 +12670,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Setup, function (sprite, otherSp
         })
     })
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile128`, function (sprite, location) {
+    mySprite.x += -10
+    if (game.askForNumber("-Code-") == 7429) {
+        tiles.setTileAt(location, assets.tile`myTile129`)
+        music.play(music.createSong(hex`00f0000408020200001c00010a006400f401640000040000000000000000000000000005000004180000000400011d04000800011908000c00011d0c001000012009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000113`), music.PlaybackMode.InBackground)
+    } else {
+        music.play(music.createSong(hex`00a0000408020204001c00100500640000041e000004000000000000000000000000000a040004060000000c00011b09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000114`), music.PlaybackMode.InBackground)
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
             tiles.setTileAt(location, assets.tile`transparency8`)
-            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(9, ExtraEffectPresetShape.Spark), 5000, 100)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(9, ExtraEffectPresetShape.Spark), 2500, 300, 80)
             tileUtil.replaceAllTiles(assets.tile`myTile51`, assets.tile`transparency8`)
             sprites.destroyAllSpritesOfKind(SpriteKind.Spike)
             sprites.destroyAllSpritesOfKind(SpriteKind.Setup)
@@ -12758,6 +12767,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 75,
                 true
                 )
+                timer.after(2000, function () {
+                    textSprite = textsprite.create("The journey is worth it.", 1, 2)
+                    textSprite.setMaxFontHeight(6)
+                    textSprite.x = 3
+                    textSprite.setStayInScreen(true)
+                })
             }
             if (PlayingLevel == 10) {
                 mySprite3.setImage(img`
@@ -12797,6 +12812,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 75,
                 true
                 )
+                timer.after(2000, function () {
+                    textSprite = textsprite.create("I am special in my own way.", 1, 2)
+                    textSprite.setMaxFontHeight(6)
+                    textSprite.x = 3
+                    textSprite.setStayInScreen(true)
+                })
             }
             if (PlayingLevel == 20) {
                 mySprite3.setImage(img`
@@ -12836,6 +12857,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 75,
                 true
                 )
+                timer.after(2000, function () {
+                    textSprite = textsprite.create("Nobody can be perfect.", 1, 2)
+                    textSprite.setMaxFontHeight(6)
+                    textSprite.x = 3
+                    textSprite.setStayInScreen(true)
+                })
             }
             if (PlayingLevel == 15) {
                 mySprite3.setKind(SpriteKind.Nothing)
@@ -12888,11 +12915,31 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 100,
                 true
                 )
+                timer.after(2000, function () {
+                    textSprite = textsprite.create("I'm starting it now.", 1, 2)
+                    textSprite.setMaxFontHeight(6)
+                    textSprite.x = 3
+                    textSprite.setStayInScreen(true)
+                })
             }
             music.play(music.createSong(hex`0078000408030300001c00010a006400f401640000040000000000000000000000000005000004230000000400020d1918001c0002111820002400020f1938003c0002111b40004400020d1903001c0001dc00690000045e0100040000000000000000000005640001040003250000001000020d1910002000021118200030000212193000400002141b40006000040d191d2009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80029000000010001031000110001081800190001032000210001033000310002030840004100050304060708`), music.PlaybackMode.InBackground)
             scene.cameraShake(4, 500)
             color.startFadeFromCurrent(color.White, 1000)
-            pause(8500)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Laser)
+            pause(3000)
+            profilelife.setInvisible(true)
+            color.startFadeFromCurrent(color.originalPalette, 500)
+            tiles.setCurrentTilemap(tilemap`Empty`)
+            for (let value of sprites.allOfKind(SpriteKind.Cycle)) {
+                value.setFlag(SpriteFlag.Invisible, true)
+            }
+            pause(3000)
+            color.startFadeFromCurrent(color.White, 500)
+            pause(3500)
+            sprites.destroy(textSprite)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Text)
             if (PlayingLevel == 5) {
                 if (Level5Done == 0) {
                     Level5Done = 1
@@ -12929,9 +12976,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                     Level20Done = 2
                 }
             }
-            sprites.destroyAllSpritesOfKind(SpriteKind.Player)
-            sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
-            sprites.destroyAllSpritesOfKind(SpriteKind.Laser)
             Menu()
             PlayingLevel = 0
         })
@@ -13813,6 +13857,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, 
 let Shooter = 0
 let mySprite2: Sprite = null
 let Shift = 0
+let textSprite: TextSprite = null
 let Level20Done = 0
 let Level10Done = 0
 let mySprite6: Sprite = null
