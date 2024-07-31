@@ -5083,6 +5083,20 @@ sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Setup, function (sprite, otherSpr
         })
     })
 })
+scene.onOverlapTile(SpriteKind.Boss2, assets.tile`myTile35`, function (sprite, location) {
+    mySprite8 = sprites.create(img`
+        . . . . . . . . 
+        . . . 5 5 . . . 
+        . . . 5 5 . . . 
+        . . 5 4 4 5 . . 
+        . . 5 4 4 5 . . 
+        . 5 4 f f 4 5 . 
+        . 5 4 f f 4 5 . 
+        5 4 f f f f 4 5 
+        `, SpriteKind.Spike)
+    tiles.placeOnTile(mySprite8, location)
+    mySprite8.lifespan = 50
+})
 scene.onHitWall(SpriteKind.Shot, function (sprite, location) {
     sprites.destroy(sprite)
 })
@@ -13571,6 +13585,20 @@ function Phased () {
         )
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile35`, function (sprite, location) {
+    mySprite8 = sprites.create(img`
+        . . . . . . . . 
+        . . . 5 5 . . . 
+        . . . 5 5 . . . 
+        . . 5 4 4 5 . . 
+        . . 5 4 4 5 . . 
+        . 5 4 f f 4 5 . 
+        . 5 4 f f 4 5 . 
+        5 4 f f f f 4 5 
+        `, SpriteKind.Spike)
+    tiles.placeOnTile(mySprite8, location)
+    mySprite8.lifespan = 50
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -13619,6 +13647,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, 
     }
 })
 function Simulate_Spikes () {
+    profilelife.setInvisible(false)
     for (let value of tiles.getTilesByType(assets.tile`myTile64`)) {
         mySprite2 = sprites.create(img`
             . . . 5 5 . . . 
@@ -13684,19 +13713,6 @@ function Simulate_Spikes () {
             . . . . . . . . 
             . . . . . . . . 
             `, SpriteKind.BuzzSaw)
-        tiles.placeOnTile(mySprite2, value)
-    }
-    for (let value of tiles.getTilesByType(assets.tile`myTile35`)) {
-        mySprite2 = sprites.create(img`
-            . . . . . . . . 
-            . . . 5 5 . . . 
-            . . . 5 5 . . . 
-            . . 5 4 4 5 . . 
-            . . 5 4 4 5 . . 
-            . 5 4 f f 4 5 . 
-            . 5 4 f f 4 5 . 
-            5 4 f f f f 4 5 
-            `, SpriteKind.Spike)
         tiles.placeOnTile(mySprite2, value)
     }
     for (let value of tiles.getTilesByType(assets.tile`myTile71`)) {
@@ -13878,6 +13894,7 @@ let Level4Done = 0
 let Level3Done = 0
 let Level2Done = 0
 let Level1Done = 0
+let mySprite8: Sprite = null
 let CycleLevel = 0
 let mySprite4: Sprite = null
 let LevelsDone = 0
@@ -13895,6 +13912,7 @@ let Phase = 0
 let Orb = 0
 let Level5Done = 0
 let Level15Done = 0
+pause(1000)
 Level15Done = 2
 Level5Done = 2
 Orb = 1
