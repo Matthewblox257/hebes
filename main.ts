@@ -16,6 +16,8 @@ namespace SpriteKind {
     export const Boss3 = SpriteKind.create()
     export const Angry = SpriteKind.create()
     export const Laser = SpriteKind.create()
+    export const InvisSaw = SpriteKind.create()
+    export const VisSaw = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
@@ -4102,9 +4104,104 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
         }
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile143`, function (sprite, location) {
+    mySprite8 = sprites.create(img`
+        . . . 1 1 . . . 
+        . . 1 1 1 1 . . 
+        . 1 1 1 1 1 1 . 
+        1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 
+        . 1 1 1 1 1 1 . 
+        . . 1 1 1 1 . . 
+        . . . 1 1 . . . 
+        `, SpriteKind.InvisSaw)
+    tiles.placeOnTile(mySprite8, location)
+    mySprite8.lifespan = 50
+})
 scene.onOverlapTile(SpriteKind.Boss, assets.tile`myTile53`, function (sprite, location) {
     sprite.setKind(SpriteKind.Nothing)
     info.setLife(0)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile144`, function (sprite, location) {
+    mySprite8 = sprites.create(img`
+        . . . b b . . . 
+        . . b b b b . . 
+        . b b b b b b . 
+        b b b b b b b b 
+        b b b b b b b b 
+        . b b b b b b . 
+        . . b b b b . . 
+        . . . b b . . . 
+        `, SpriteKind.VisSaw)
+    tiles.placeOnTile(mySprite8, location)
+    mySprite8.lifespan = 50
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.InvisSaw, function (sprite, otherSprite) {
+    scene.cameraShake(4, 500)
+    characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        f . . . f . f . 
+        f . . . f f f . 
+        . f f f 1 f 1 . 
+        . . f f f f f . 
+        . f . . . f . f 
+        `,img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        5 . . . 5 . 5 . 
+        5 . . . 5 5 5 . 
+        . 5 5 5 4 5 4 . 
+        . . 5 5 5 5 5 . 
+        . 5 . . . 5 . 5 
+        `],
+    50,
+    true
+    )
+    music.play(music.createSoundEffect(
+    WaveShape.Noise,
+    2471,
+    2313,
+    600,
+    0,
+    200,
+    SoundExpressionEffect.Vibrato,
+    InterpolationCurve.Logarithmic
+    ), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+    mySprite.setFlag(SpriteFlag.GhostThroughSprites, true)
+    otherSprite.setImage(img`
+        . . . 5 5 . . . 
+        . . 5 4 4 5 . . 
+        . 5 4 f f 4 5 . 
+        5 4 f f f f 4 5 
+        5 4 f f f f 4 5 
+        . 5 4 f f 4 5 . 
+        . . 5 4 4 5 . . 
+        . . . 5 5 . . . 
+        `)
+    otherSprite.setKind(SpriteKind.Nothing)
+    timer.after(500, function () {
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+        otherSprite.setKind(SpriteKind.Saw)
+        otherSprite.setImage(img`
+            . . . 1 1 . . . 
+            . . 1 1 1 1 . . 
+            . 1 1 1 1 1 1 . 
+            1 1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 1 
+            . 1 1 1 1 1 1 . 
+            . . 1 1 1 1 . . 
+            . . . 1 1 . . . 
+            `)
+        mySprite.setFlag(SpriteFlag.GhostThroughSprites, false)
+        characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
+    })
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile33`, function (sprite, location) {
     if (controller.A.isPressed()) {
@@ -8305,6 +8402,20 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, 
         mySprite.sayText("A", 50, false)
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile133`, function (sprite, location) {
+    mySprite8 = sprites.create(img`
+        . . . . . . . . 
+        . . . 1 1 . . . 
+        . . . 1 1 . . . 
+        . . 1 1 1 1 . . 
+        . . 1 1 1 1 . . 
+        . 1 1 1 1 1 1 . 
+        . 1 1 1 1 1 1 . 
+        1 1 1 1 1 1 1 1 
+        `, SpriteKind.Spike)
+    tiles.placeOnTile(mySprite8, location)
+    mySprite8.lifespan = 50
+})
 function Skin2 () {
     if (Skin == 0) {
         characterAnimations.loopFrames(
@@ -12308,6 +12419,73 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile95`, function (sprite, 
         mySprite.sayText("Complete 13 Levels to Face.", 100, false)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.VisSaw, function (sprite, otherSprite) {
+    scene.cameraShake(4, 500)
+    characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        f . . . f . f . 
+        f . . . f f f . 
+        . f f f 1 f 1 . 
+        . . f f f f f . 
+        . f . . . f . f 
+        `,img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        5 . . . 5 . 5 . 
+        5 . . . 5 5 5 . 
+        . 5 5 5 4 5 4 . 
+        . . 5 5 5 5 5 . 
+        . 5 . . . 5 . 5 
+        `],
+    50,
+    true
+    )
+    music.play(music.createSoundEffect(
+    WaveShape.Noise,
+    2471,
+    2313,
+    600,
+    0,
+    200,
+    SoundExpressionEffect.Vibrato,
+    InterpolationCurve.Logarithmic
+    ), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+    mySprite.setFlag(SpriteFlag.GhostThroughSprites, true)
+    otherSprite.setImage(img`
+        . . . 5 5 . . . 
+        . . 5 4 4 5 . . 
+        . 5 4 f f 4 5 . 
+        5 4 f f f f 4 5 
+        5 4 f f f f 4 5 
+        . 5 4 f f 4 5 . 
+        . . 5 4 4 5 . . 
+        . . . 5 5 . . . 
+        `)
+    otherSprite.setKind(SpriteKind.Nothing)
+    timer.after(500, function () {
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+        otherSprite.setKind(SpriteKind.Saw)
+        otherSprite.setImage(img`
+            . . . b b . . . 
+            . . b b b b . . 
+            . b b b b b b . 
+            b b b b b b b b 
+            b b b b b b b b 
+            . b b b b b b . 
+            . . b b b b . . 
+            . . . b b . . . 
+            `)
+        mySprite.setFlag(SpriteFlag.GhostThroughSprites, false)
+        characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
+    })
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile89`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -12418,10 +12596,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile136`, function (sprite,
             sprites.destroyAllSpritesOfKind(SpriteKind.Text)
             color.startFadeFromCurrent(color.originalPalette, 1000)
             PlayingLevel = 21
-            tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level44`))
+            tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level48`))
             tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
             textSprite2 = textsprite.create("I'm not good enough, you know that.", 1, 4)
-            tiles.placeOnTile(textSprite2, tiles.getTileLocation(17, 7))
+            tiles.placeOnTile(textSprite2, tiles.getTileLocation(15, 7))
             profilelife.setFilledLifeImage(img`
                 . . . . . . . . 
                 . e e . . f f . 
