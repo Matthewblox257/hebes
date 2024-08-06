@@ -18,6 +18,7 @@ namespace SpriteKind {
     export const Laser = SpriteKind.create()
     export const InvisSaw = SpriteKind.create()
     export const VisSaw = SpriteKind.create()
+    export const Glide = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
@@ -95,6 +96,73 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Scorchup, function (sprite, othe
                 . . 7 6 6 7 . . 
                 `)
         })
+    })
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Glide, function (sprite, otherSprite) {
+    scene.cameraShake(4, 500)
+    characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        f . . . f . f . 
+        f . . . f f f . 
+        . f f f 1 f 1 . 
+        . . f f f f f . 
+        . f . . . f . f 
+        `,img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        5 . . . 5 . 5 . 
+        5 . . . 5 5 5 . 
+        . 5 5 5 4 5 4 . 
+        . . 5 5 5 5 5 . 
+        . 5 . . . 5 . 5 
+        `],
+    50,
+    true
+    )
+    music.play(music.createSoundEffect(
+    WaveShape.Noise,
+    2471,
+    2313,
+    600,
+    0,
+    200,
+    SoundExpressionEffect.Vibrato,
+    InterpolationCurve.Logarithmic
+    ), music.PlaybackMode.InBackground)
+    info.changeLifeBy(-1)
+    mySprite.setFlag(SpriteFlag.GhostThroughSprites, true)
+    otherSprite.setImage(img`
+        . . . . . . . . 
+        . . . . . . . . 
+        . . b d d b . . 
+        . b c f e c b . 
+        . b c e f c b . 
+        . . b d d b . . 
+        . . . . . . . . 
+        . . . . . . . . 
+        `)
+    otherSprite.setKind(SpriteKind.Nothing)
+    timer.after(500, function () {
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+        otherSprite.setKind(SpriteKind.Glide)
+        otherSprite.setImage(img`
+            . . . . . . . . 
+            . . . . . . . . 
+            . 7 7 d d 7 7 . 
+            7 6 6 f e 6 6 7 
+            7 6 6 e f 6 6 7 
+            . 7 7 d d 7 7 . 
+            . . . . . . . . 
+            . . . . . . . . 
+            `)
+        mySprite.setFlag(SpriteFlag.GhostThroughSprites, false)
+        characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
@@ -4885,6 +4953,53 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.BuzzSaw, function (sprite, other
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile137`, function (sprite, location) {
+    if (controller.A.isPressed()) {
+        timer.after(1, function () {
+            controller.moveSprite(mySprite, 0, 0)
+            tiles.setTileAt(location, assets.tile`transparency8`)
+            music.stopAllSounds()
+            music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000a0000000100050405060708`), music.PlaybackMode.InBackground)
+            scene.cameraShake(4, 500)
+            color.startFadeFromCurrent(color.White, 1000)
+            pause(5000)
+            controller.moveSprite(mySprite, 70, 0)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+            color.startFadeFromCurrent(color.originalPalette, 1000)
+            PlayingLevel = 22
+            tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level49`))
+            tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
+            textSprite2 = textsprite.create("I was left left alone, and you were there.", 1, 4)
+            tiles.placeOnTile(textSprite2, tiles.getTileLocation(16, 7))
+            profilelife.setFilledLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e 5 5 e f 4 4 f 
+                e 5 5 5 4 4 4 f 
+                e 5 5 5 4 4 4 f 
+                . e 5 5 4 4 f . 
+                . . e 5 4 f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setEmptyLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e d d e f e e f 
+                e d d d e e e f 
+                e d d d e e e f 
+                . e d d e e f . 
+                . . e d e f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setMaxLife(3)
+            info.setLife(3)
+            Simulate_Spikes()
+            music.play(music.createSong(hex`0078000408080500001c00010a006400f401640000040000000000000000000000000005000004e40000000400010a0c001000010a1000140001121c00200001122000240001932c00300001933000340001123c004000011240004400010a4c005000010a5000540001125c00600001126000640001936c007000019370007400011278007a0001127a007c0001117c007e00010f7e008000010d80008400010a8c009000010a9000940001129c00a0000112a000a4000193ac00b0000193b000b4000112bc00c0000112c000c400010acc00d000010ad000d4000112dc00e0000112e000e4000193ec00f0000193f000f4000112f800fa000112fa00fc000193fc00fe000114fe000001019505001c000f0a006400f4010a0000040000000000000000000000000000000002600080008200011688008a00011690009200011698009a000116a000a2000197a800aa000116b000b2000197b800ba000116c000c2000116c800ca000116d000d2000116d800da000116e000e200011be800ea00011bf000f200011df800fa00011d07001c00020a006400f401640000040000000000000000000000000000000003d5010400060001220c000e00012210001200012012001400011e14001600011d16001800011b18001a0001191c001e0002181b2000220002162224002600011628002a0001222c002e00011630003200012234003600011636003800012238003a00011e3a003c00011d3c003e0002191e3e00400001204000420001224400460001224c004e00012250005200012052005400011e54005600011d56005800011e58005a00011d5a005c00011b5c005e00011d5e006000011b6000620002162264006600011668006a0001226c006e0001197000720002162274007600011b78007a000216227c007e00011d8400860001228c008e00012290009200012092009400011e94009600011d96009800011b98009a0001199c009e0002181ba000a200021622a400a6000116a800aa000122ac00ae000116b000b2000122b400b6000116b600b8000122b800ba00011eba00bc00011dbc00be0002191ebe00c0000120c000c2000122c400c6000122cc00ce000122d000d2000120d200d400011ed400d600011dd600d800011ed800da00011dda00dc00011bdc00de00011dde00e000011be000e200021622e400e6000116e800ea00021922ec00ee000119f000f200021b22f400f600011bf800fa00021d22fc00fe00011d08001c000e050046006603320000040a002d00000064001400013200020100027e0000000800010a1c002000018b20002800010a3c004000010840004800010a5c006000018b60006800010a78007a00010a7a007c00010c7c007e00010d7e008000011180008800010a9c00a000018ba000a800010abc00c0000108c000c800010adc00e000018be000e800010ae800f000010df000f800010ff8000001011109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80002010000010001030400050001030800090001080e000f0001031400150001031800190001081c001d0001032000210001032400250001032800290001082e002f0001033400350001033800390001083a003b0001034000410001034800490001064a004b0001064c004d0001064e004f0001065000510001085c005d0001066000610001036400650001066e006f0001067000710001067400750001067600770001067800790001087c007d0001038000810001038400850001038800890001088e008f0001039400950001039800990001089c009d000103a000a1000103a400a5000103a800a9000108ae00af000103b400b5000103b800b9000108ba00bb000103`), music.PlaybackMode.LoopingInBackground)
+        })
+    } else {
+        mySprite.sayText("A", 50, false)
+    }
+})
 function SubCycle () {
     if (Orb == 2) {
         CycleLevel += -1
@@ -8217,6 +8332,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, 
             tiles.setTileAt(location, assets.tile`transparency8`)
             extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(9, ExtraEffectPresetShape.Spark), 5000, 100)
             sprites.destroyAllSpritesOfKind(SpriteKind.Spike)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Glide)
             sprites.destroyAllSpritesOfKind(SpriteKind.Setup)
             sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
             sprites.destroyAllSpritesOfKind(SpriteKind.Text)
@@ -8303,6 +8419,36 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, 
                 }
                 if (info.life() == 3) {
                     Level8Done = 2
+                }
+            }
+            if (PlayingLevel == 23) {
+                if (Level23Done == 0) {
+                    Level23Done = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    Level23Done = 2
+                }
+            }
+            if (PlayingLevel == 22) {
+                if (Level22Done == 0) {
+                    Level22Done = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    Level22Done = 2
+                }
+            }
+            if (PlayingLevel == 21) {
+                if (Level21Done == 0) {
+                    Level21Done = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    Level21Done = 2
                 }
             }
             if (PlayingLevel == 19) {
@@ -12074,6 +12220,53 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Hover, function (sprite, otherSp
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile138`, function (sprite, location) {
+    if (controller.A.isPressed()) {
+        timer.after(1, function () {
+            controller.moveSprite(mySprite, 0, 0)
+            tiles.setTileAt(location, assets.tile`transparency8`)
+            music.stopAllSounds()
+            music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000a0000000100050405060708`), music.PlaybackMode.InBackground)
+            scene.cameraShake(4, 500)
+            color.startFadeFromCurrent(color.White, 1000)
+            pause(5000)
+            controller.moveSprite(mySprite, 70, 0)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+            color.startFadeFromCurrent(color.originalPalette, 1000)
+            PlayingLevel = 23
+            tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level50`))
+            tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
+            textSprite2 = textsprite.create("Were we not good enough..?", 1, 6)
+            tiles.placeOnTile(textSprite2, tiles.getTileLocation(11, 7))
+            profilelife.setFilledLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e 7 7 e f 6 6 f 
+                e 7 7 7 6 6 6 f 
+                e 7 7 7 6 6 6 f 
+                . e 7 7 6 6 f . 
+                . . e 7 6 f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setEmptyLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e d d e f e e f 
+                e d d d e e e f 
+                e d d d e e e f 
+                . e d d e e f . 
+                . . e d e f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setMaxLife(3)
+            info.setLife(3)
+            Simulate_Spikes()
+            music.play(music.createSong(hex`0064000408040500001c00010a006400f40164000004000000000000000000000000000500000460000000040001180c00100001181000140001931c00200001162000240001142c003000011430003400011138003c0001934000440001184c00500001185000540001935c00600001166000640001146c007000011470007400011678007c00019705001c000f0a006400f4010a000004000000000000000000000000000000000272000000020001240600080001240c000e00012412001400012418001a0001241e002000012420002200012430003800012738003c0001a63c00400001a64000420001244600480001244c004e00012452005400012458005a0001245e006000012460006200012470007800012978008000012707001c00020a006400f4016400000400000000000000000000000000000000037e0000000400011804000800011b08000c00019f18001c0001181c002000011b20002400012026002a0001202c003000012030003800011b38003c00019a3c004000019a40004400011844004800011b48004c00019f58005c0001185c006000011b60006400012066006a0001206c007000012070007800011d78008000019f08001c000e050046006603320000040a002d0000006400140001320002010002300000001000010c10001800018720003000010c30003800010840005000010c50005800018760007000010c70007800010809010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8009a0000000100010308000900020308100011000103180019000203081e001f00010820002100010328002900020308300031000103320033000108380039000203083e003f00010840004100010348004900020308500051000103580059000203085e005f000108600061000203086800690002030870007100020308740075000108780079000203087a007b0001087c007d0001087e007f000108`), music.PlaybackMode.LoopingInBackground)
+        })
+    } else {
+        mySprite.sayText("A", 50, false)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Spike, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
     characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
@@ -12835,6 +13028,9 @@ function Menu () {
     if (Level15Done >= 1) {
         mySprite5.setFlag(SpriteFlag.Invisible, false)
     }
+    if (Unlock >= 1) {
+        tileUtil.replaceAllTiles(assets.tile`myTile128`, assets.tile`myTile129`)
+    }
     tileUtil.coverAllTiles(assets.tile`myTile2`, assets.tile`myTile3`)
     tileUtil.coverAllTiles(assets.tile`myTile26`, assets.tile`myTile3`)
     tileUtil.coverAllTiles(assets.tile`myTile27`, assets.tile`myTile3`)
@@ -12917,6 +13113,30 @@ function Menu () {
     } else {
         if (Level8Done == 2) {
             tileUtil.coverAllTiles(assets.tile`myTile32`, assets.tile`myTile76`)
+            Perfects += 1
+        }
+    }
+    if (Level23Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile138`, assets.tile`myTile75`)
+    } else {
+        if (Level23Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile138`, assets.tile`myTile76`)
+            Perfects += 1
+        }
+    }
+    if (Level22Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile137`, assets.tile`myTile18`)
+    } else {
+        if (Level22Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile137`, assets.tile`myTile49`)
+            Perfects += 1
+        }
+    }
+    if (Level21Done == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile136`, assets.tile`myTile18`)
+    } else {
+        if (Level21Done == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile136`, assets.tile`myTile49`)
             Perfects += 1
         }
     }
@@ -13208,10 +13428,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Setup, function (sprite, otherSp
     })
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile128`, function (sprite, location) {
-    mySprite.x += -10
+    mySprite.x += -5
     if (game.askForNumber("-Code-") == 7429) {
         tiles.setTileAt(location, assets.tile`myTile129`)
         music.play(music.createSong(hex`00f0000408020200001c00010a006400f401640000040000000000000000000000000005000004180000000400011d04000800011908000c00011d0c001000012009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000113`), music.PlaybackMode.InBackground)
+        Unlock = 1
     } else {
         music.play(music.createSong(hex`00a0000408020204001c00100500640000041e000004000000000000000000000000000a040004060000000c00011b09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000114`), music.PlaybackMode.InBackground)
     }
@@ -14197,6 +14418,21 @@ function Simulate_Spikes () {
             `, SpriteKind.Saw)
         tiles.placeOnTile(mySprite2, value)
     }
+    for (let value of tiles.getTilesByType(assets.tile`myTile147`)) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . 
+            . . . . . . . . 
+            . 7 7 d d 7 7 . 
+            7 6 6 f e 6 6 7 
+            7 6 6 e f 6 6 7 
+            . 7 7 d d 7 7 . 
+            . . . . . . . . 
+            . . . . . . . . 
+            `, SpriteKind.Glide)
+        mySprite2.setBounceOnWall(true)
+        mySprite2.setVelocity(0, 40)
+        tiles.placeOnTile(mySprite2, value)
+    }
     for (let value of tiles.getTilesByType(assets.tile`myTile109`)) {
         mySprite2 = sprites.create(img`
             . . . . . . . . 
@@ -14398,6 +14634,7 @@ let mySprite2: Sprite = null
 let textSprite: TextSprite = null
 let Level20Done = 0
 let Level10Done = 0
+let Unlock = 0
 let mySprite6: Sprite = null
 let mySprite7: Sprite = null
 let Level9Done = 0
@@ -14409,6 +14646,9 @@ let Level16Done = 0
 let Level17Done = 0
 let Level18Done = 0
 let Level19Done = 0
+let Level21Done = 0
+let Level22Done = 0
+let Level23Done = 0
 let Level8Done = 0
 let Level7Done = 0
 let Level6Done = 0
