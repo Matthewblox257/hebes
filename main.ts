@@ -181,8 +181,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
                 WaveShape.Sawtooth,
                 1581,
                 1,
-                500,
-                500,
+                650,
+                650,
                 200,
                 SoundExpressionEffect.None,
                 InterpolationCurve.Linear
@@ -193,8 +193,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
                 WaveShape.Sawtooth,
                 1,
                 1553,
-                500,
-                500,
+                650,
+                650,
                 200,
                 SoundExpressionEffect.None,
                 InterpolationCurve.Linear
@@ -211,8 +211,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
                     WaveShape.Sawtooth,
                     960,
                     1,
-                    500,
-                    500,
+                    650,
+                    650,
                     200,
                     SoundExpressionEffect.None,
                     InterpolationCurve.Linear
@@ -224,8 +224,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
                     WaveShape.Sawtooth,
                     1,
                     2621,
-                    500,
-                    500,
+                    650,
+                    650,
                     200,
                     SoundExpressionEffect.None,
                     InterpolationCurve.Linear
@@ -3667,7 +3667,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 WaveShape.Sawtooth,
                 382,
                 382,
-                600,
+                750,
                 0,
                 300,
                 SoundExpressionEffect.Warble,
@@ -3684,7 +3684,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                     382,
                     382,
                     0,
-                    600,
+                    750,
                     300,
                     SoundExpressionEffect.Warble,
                     InterpolationCurve.Linear
@@ -4032,6 +4032,51 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile34`, function (sprite, 
         mySprite.sayText("Complete 6 Levels to Face.", 100, false)
     }
 })
+function Volume () {
+    myMenu2 = miniMenu.createMenu(
+    miniMenu.createMenuItem("-0 (Silent)"),
+    miniMenu.createMenuItem("-30 (Very Quiet)"),
+    miniMenu.createMenuItem("-60 (Quiet)"),
+    miniMenu.createMenuItem("-90 (Standard)"),
+    miniMenu.createMenuItem("-120 (Loud)")
+    )
+    myMenu2.setDimensions(100, 100)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 15)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 4)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 5)
+    myMenu2.onSelectionChanged(function (selection, selectedIndex) {
+        if (selectedIndex == 0) {
+            music.stopAllSounds()
+            music.setVolume(0)
+            music.play(music.createSong(hex`0078000408020200001c00010a006400f4016400000400000000000000000000000000050000041e00000004000311141d04000800011908000c000312161d0c0010000311142009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80012000000010001030800090001030c000d000103`), music.PlaybackMode.InBackground)
+        }
+        if (selectedIndex == 1) {
+            music.stopAllSounds()
+            music.setVolume(30)
+            music.play(music.createSong(hex`0078000408020200001c00010a006400f4016400000400000000000000000000000000050000041e00000004000311141d04000800011908000c000312161d0c0010000311142009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80012000000010001030800090001030c000d000103`), music.PlaybackMode.InBackground)
+        }
+        if (selectedIndex == 2) {
+            music.stopAllSounds()
+            music.setVolume(60)
+            music.play(music.createSong(hex`0078000408020200001c00010a006400f4016400000400000000000000000000000000050000041e00000004000311141d04000800011908000c000312161d0c0010000311142009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80012000000010001030800090001030c000d000103`), music.PlaybackMode.InBackground)
+        }
+        if (selectedIndex == 3) {
+            music.stopAllSounds()
+            music.setVolume(90)
+            music.play(music.createSong(hex`0078000408020200001c00010a006400f4016400000400000000000000000000000000050000041e00000004000311141d04000800011908000c000312161d0c0010000311142009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80012000000010001030800090001030c000d000103`), music.PlaybackMode.InBackground)
+        }
+        if (selectedIndex == 4) {
+            music.stopAllSounds()
+            music.setVolume(120)
+            music.play(music.createSong(hex`0078000408020200001c00010a006400f4016400000400000000000000000000000000050000041e00000004000311141d04000800011908000c000312161d0c0010000311142009010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80012000000010001030800090001030c000d000103`), music.PlaybackMode.InBackground)
+        }
+    })
+    myMenu2.onButtonPressed(controller.A, function (selection, selectedIndex) {
+        myMenu2.close()
+        Settings()
+    })
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile32`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -4091,7 +4136,7 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
                 WaveShape.Noise,
                 2089,
                 1,
-                600,
+                750,
                 0,
                 300,
                 SoundExpressionEffect.Vibrato,
@@ -4129,7 +4174,7 @@ controller.down.onEvent(ControllerButtonEvent.Released, function () {
                     WaveShape.Noise,
                     1873,
                     1,
-                    600,
+                    750,
                     0,
                     1200,
                     SoundExpressionEffect.Tremolo,
@@ -4365,20 +4410,38 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Shot, function (sprite, otherSpr
     })
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile42`, function (sprite, location) {
-    if (info.life() < 3) {
-        tiles.setTileAt(location, assets.tile`myTile43`)
-        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
-        info.changeLifeBy(1)
-        music.play(music.createSoundEffect(
-        WaveShape.Triangle,
-        1,
-        1726,
-        400,
-        250,
-        500,
-        SoundExpressionEffect.Warble,
-        InterpolationCurve.Curve
-        ), music.PlaybackMode.InBackground)
+    if (Difficult == 2) {
+        if (info.life() < 3) {
+            tiles.setTileAt(location, assets.tile`myTile43`)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
+            info.changeLifeBy(1)
+            music.play(music.createSoundEffect(
+            WaveShape.Triangle,
+            1,
+            1726,
+            500,
+            250,
+            500,
+            SoundExpressionEffect.Warble,
+            InterpolationCurve.Curve
+            ), music.PlaybackMode.InBackground)
+        }
+    } else {
+        if (info.life() < 4) {
+            tiles.setTileAt(location, assets.tile`myTile43`)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
+            info.changeLifeBy(1)
+            music.play(music.createSoundEffect(
+            WaveShape.Triangle,
+            1,
+            1726,
+            500,
+            250,
+            500,
+            SoundExpressionEffect.Warble,
+            InterpolationCurve.Curve
+            ), music.PlaybackMode.InBackground)
+        }
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile124`, function (sprite, location) {
@@ -4478,6 +4541,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Laser, function (sprite, otherSp
         mySprite.setFlag(SpriteFlag.GhostThroughSprites, false)
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile149`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`transparency16`)
+    extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(14, ExtraEffectPresetShape.Spark), 100)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile29`, function (sprite, location) {
     if (LevelsDone >= 3) {
@@ -4704,6 +4771,33 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile29`, function (sprite, 
         mySprite.sayText("Complete 3 Levels to Face.", 100, false)
     }
 })
+function Settings () {
+    myMenu2 = miniMenu.createMenu(
+    miniMenu.createMenuItem("-Volume"),
+    miniMenu.createMenuItem("-Difficulty"),
+    miniMenu.createMenuItem("-Reset"),
+    miniMenu.createMenuItem("-Sleep")
+    )
+    myMenu2.setDimensions(100, 100)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 15)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 4)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 5)
+    myMenu2.onButtonPressed(controller.A, function (selection, selectedIndex) {
+        if (selectedIndex == 0) {
+            myMenu2.close()
+            Volume()
+        }
+        if (selectedIndex == 1) {
+            myMenu2.close()
+            Difficulty()
+        }
+        if (selectedIndex == 3) {
+            myMenu2.close()
+            SettingsComplete = 1
+        }
+    })
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile90`, function (sprite, location) {
     if (LevelsDone >= 10) {
         if (controller.A.isPressed()) {
@@ -11696,20 +11790,6 @@ sprites.onOverlap(SpriteKind.Boss2, SpriteKind.Shot, function (sprite, otherSpri
         characterAnimations.setCharacterAnimationsEnabled(mySprite, true)
     })
 })
-scene.onOverlapTile(SpriteKind.Boss3, assets.tile`myTile127`, function (sprite, location) {
-    sprite.setKind(SpriteKind.Angry)
-    tiles.setTileAt(location, assets.tile`myTile54`)
-    sprite.setImage(img`
-        . . . 5 5 . . . 
-        . . 5 4 4 5 . . 
-        . 5 4 1 1 4 5 . 
-        5 4 f 1 1 f 4 5 
-        5 4 f f f f 4 5 
-        5 4 5 f f 5 4 5 
-        . 5 4 4 4 4 5 . 
-        . . 5 5 5 5 . . 
-        `)
-})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile93`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -11984,8 +12064,8 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
                 WaveShape.Sawtooth,
                 382,
                 282,
-                600,
-                490,
+                750,
+                640,
                 200,
                 SoundExpressionEffect.Vibrato,
                 InterpolationCurve.Linear
@@ -12121,8 +12201,8 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
                     WaveShape.Sawtooth,
                     382,
                     482,
-                    600,
-                    490,
+                    750,
+                    640,
                     200,
                     SoundExpressionEffect.Vibrato,
                     InterpolationCurve.Linear
@@ -12134,7 +12214,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 info.onLifeZero(function () {
     timer.after(1, function () {
-        info.changeLifeBy(3)
+        info.changeLifeBy(5)
         color.startFade(color.White, color.originalPalette, 1000)
         tiles.placeOnRandomTile(mySprite, assets.tile`myTile41`)
         tiles.placeOnRandomTile(mySprite, assets.tile`myTile52`)
@@ -12149,6 +12229,9 @@ info.onLifeZero(function () {
         SoundExpressionEffect.Vibrato,
         InterpolationCurve.Logarithmic
         ), music.PlaybackMode.InBackground)
+        if (Difficult == 1) {
+            tileUtil.replaceAllTiles(assets.tile`myTile43`, assets.tile`myTile42`)
+        }
         if (PlayingLevel == 5) {
             tiles.placeOnTile(mySprite3, tiles.getTileLocation(146, 11))
             mySprite3.setKind(SpriteKind.Boss)
@@ -12277,6 +12360,76 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile138`, function (sprite,
         mySprite.sayText("A", 50, false)
     }
 })
+function Difficulty () {
+    myMenu2 = miniMenu.createMenu(
+    miniMenu.createMenuItem("-Lenient (Easy)"),
+    miniMenu.createMenuItem("-Regular (Hard)")
+    )
+    myMenu2.setDimensions(100, 100)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 15)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 4)
+    myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 5)
+    myMenu2.onSelectionChanged(function (selection, selectedIndex) {
+        if (selectedIndex == 0) {
+            story.clearAllText()
+            sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+            mySprite10 = sprites.create(img`
+                a a f f f f f f f f f f f f a a 
+                f 1 1 f f 1 1 1 1 1 1 f f 1 1 f 
+                f f f f 1 1 1 1 1 1 1 1 f f f f 
+                f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f 
+                f f f 1 1 1 1 1 1 1 1 1 1 f f f 
+                f f f 1 1 1 1 1 1 1 1 1 1 f f f 
+                f f f 1 f f 1 1 1 1 f f 1 f f f 
+                f f f 1 1 f f 1 1 f f 1 1 f f f 
+                f 1 f a 1 1 1 1 1 1 1 1 a f 1 f 
+                1 a f f a 1 1 1 1 1 1 a f f a 1 
+                a f f f f f 1 1 1 1 f f f f f a 
+                f f f 1 f f a 1 1 a f f 1 f f f 
+                f f 1 1 1 f f a a f f 1 1 1 f f 
+                f f a 1 f f f f f f f f 1 a f f 
+                f f f a 1 f a 1 1 a f 1 a f f f 
+                f f f f f f f a a f f f f f f f 
+                `, SpriteKind.Nothing)
+            mySprite10.setPosition(75, 26)
+            Difficult = 1
+            story.printDialog("5 Hearts, Health Regen. Play for less precise players but can limit unlocks and perfects.", 80, 98, 50, 150, 1, 15, story.TextSpeed.Fast)
+        } else {
+            if (selectedIndex == 1) {
+                story.clearAllText()
+                sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+                mySprite10 = sprites.create(img`
+                    a a f f f f f f f f f f f f a a 
+                    a 1 1 f f 1 1 1 1 1 1 f f 1 1 a 
+                    f 1 f f 1 1 1 1 1 1 1 1 f f 1 f 
+                    f f f 1 1 1 1 1 1 1 1 1 1 f f f 
+                    f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f 
+                    f f f 1 f f 1 1 1 1 f f 1 f f f 
+                    f 1 f 1 e f f 1 1 f f e 1 f 1 f 
+                    f f f 1 e e f 1 1 f e e 1 f f f 
+                    f 1 f a 1 e e 1 1 e e 1 a f 1 f 
+                    1 1 f f a 1 1 1 1 1 1 a f f 1 1 
+                    1 a f f f f 1 1 1 1 f f f f a 1 
+                    a f f 1 f f a 1 1 a f f 1 f f a 
+                    f f 1 1 1 f f a a f f 1 1 1 f f 
+                    f f a 1 f f f f f f f f 1 a f f 
+                    f f a 1 f f a 1 1 a f f 1 a f f 
+                    f f f a 1 f f a a f f 1 a f f f 
+                    `, SpriteKind.Nothing)
+                mySprite10.setPosition(75, 26)
+                Difficult = 2
+                story.printDialog("3 Hearts, No Health Regen. Play smart and precise in order to complete levels.", 80, 98, 50, 150, 1, 15, story.TextSpeed.Fast)
+            }
+        }
+    })
+    myMenu2.onButtonPressed(controller.A, function (selection, selectedIndex) {
+        story.clearAllText()
+        sprites.destroy(mySprite10)
+        myMenu2.close()
+        Settings()
+    })
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Spike, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
     characterAnimations.setCharacterAnimationsEnabled(mySprite, false)
@@ -14465,6 +14618,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, 
 })
 function Simulate_Spikes () {
     profilelife.setInvisible(false)
+    if (Difficult == 1) {
+        profilelife.setMaxLife(4)
+        info.setLife(4)
+    }
     for (let value of tiles.getTilesByType(assets.tile`myTile74`)) {
         mySprite2 = sprites.create(img`
             . . . 7 7 . . . 
@@ -14686,20 +14843,38 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile28`, function (sprite, 
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, location) {
-    if (info.life() < 3) {
-        tiles.setTileAt(location, assets.tile`myTile43`)
-        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
-        info.changeLifeBy(2)
-        music.play(music.createSoundEffect(
-        WaveShape.Triangle,
-        1,
-        1726,
-        400,
-        250,
-        500,
-        SoundExpressionEffect.Warble,
-        InterpolationCurve.Curve
-        ), music.PlaybackMode.InBackground)
+    if (Difficult == 2) {
+        if (info.life() < 3) {
+            tiles.setTileAt(location, assets.tile`myTile43`)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
+            info.changeLifeBy(2)
+            music.play(music.createSoundEffect(
+            WaveShape.Triangle,
+            1,
+            1726,
+            500,
+            250,
+            500,
+            SoundExpressionEffect.Warble,
+            InterpolationCurve.Curve
+            ), music.PlaybackMode.InBackground)
+        }
+    } else {
+        if (info.life() < 4) {
+            tiles.setTileAt(location, assets.tile`myTile43`)
+            extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
+            info.changeLifeBy(2)
+            music.play(music.createSoundEffect(
+            WaveShape.Triangle,
+            1,
+            1726,
+            500,
+            250,
+            500,
+            SoundExpressionEffect.Warble,
+            InterpolationCurve.Curve
+            ), music.PlaybackMode.InBackground)
+        }
     }
 })
 let Shooter = 0
@@ -14710,6 +14885,7 @@ let Level10Done = 0
 let Unlock = 0
 let mySprite6: Sprite = null
 let mySprite7: Sprite = null
+let mySprite10: Sprite = null
 let Level9Done = 0
 let Level11Done = 0
 let Level12Done = 0
@@ -14731,6 +14907,7 @@ let Level3Done = 0
 let Level2Done = 0
 let Level1Done = 0
 let CycleLevel = 0
+let myMenu2: miniMenu.MenuSprite = null
 let mySprite4: Sprite = null
 let LevelsDone = 0
 let mySprite8: Sprite = null
@@ -14749,6 +14926,10 @@ let Phase = 0
 let Orb = 0
 let Level5Done = 0
 let Level15Done = 0
+let SettingsComplete = 0
+let Difficult = 0
+Difficult = 2
+music.setVolume(90)
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -14876,7 +15057,133 @@ pause(1000)
 music.play(music.createSong(hex`0078000408020200001c00010a006400f4016400000400000000000000000000000000050000043f00000004000214200400080002111d08000c00020f1b0c001000020d1910001400020c1814001800020d1918001c00020f1b1c00200002111d20003000020d1909010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8002e000000010001010600070001010c000d0001011200130001011800190001011c001d00010120002100050103060708`), music.PlaybackMode.UntilDone)
 color.startFade(color.originalPalette, color.Black, 1000)
 pause(3000)
-color.startFadeFromCurrent(color.originalPalette)
+scene.setBackgroundImage(img`
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    ................................................................................................................................................................
+    `)
+color.startFadeFromCurrent(color.originalPalette, 1)
+Settings()
+pauseUntil(() => SettingsComplete == 1)
+pause(2500)
+color.startFade(color.Black, color.originalPalette)
 music.play(music.createSong(hex`0078000408040206001c00010a006400f4016400000400000000000000000000000000000000023c0000001000010a10002000010a20002800010a28003800018938004000018940005000010850006000010860006800010868007800018b78008000018b09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80044000000010003140103100011000106180019000106200021000304070830003100010640004100031401034800490001065800590001066000610003040708780079000106`), music.PlaybackMode.LoopingInBackground)
 let mySprite9 = sprites.create(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -15324,8 +15631,8 @@ game.onUpdateInterval(1000, function () {
         WaveShape.Sawtooth,
         1,
         2663,
-        400,
-        400,
+        500,
+        500,
         80,
         SoundExpressionEffect.Warble,
         InterpolationCurve.Linear
@@ -15354,8 +15661,8 @@ game.onUpdateInterval(1000, function () {
             WaveShape.Sawtooth,
             1,
             2663,
-            100,
-            100,
+            200,
+            200,
             80,
             SoundExpressionEffect.Warble,
             InterpolationCurve.Linear
