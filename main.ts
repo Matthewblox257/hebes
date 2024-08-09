@@ -19,6 +19,7 @@ namespace SpriteKind {
     export const InvisSaw = SpriteKind.create()
     export const VisSaw = SpriteKind.create()
     export const Glide = SpriteKind.create()
+    export const Rank = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Cacti, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
@@ -3694,6 +3695,225 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+function Percentage () {
+    Completion = 0
+    Completion += LevelsDone
+    Completion += Perfects
+    if (Level20Done == 1) {
+        Completion += 3
+    } else {
+        if (Level20Done == 2) {
+            Completion += 4
+        }
+    }
+    if (Level15Done == 1) {
+        Completion += 3
+    } else {
+        if (Level15Done == 2) {
+            Completion += 4
+        }
+    }
+    if (Level10Done == 1) {
+        Completion += 3
+    } else {
+        if (Level10Done == 2) {
+            Completion += 4
+        }
+    }
+    if (Level5Done == 1) {
+        Completion += 3
+    } else {
+        if (Level5Done == 2) {
+            Completion += 4
+        }
+    }
+    if (Level8Done == 1) {
+        Completion += 1
+    } else {
+        if (Level8Done == 2) {
+            Completion += 2
+        }
+    }
+    if (Level17Done == 1) {
+        Completion += 1
+    } else {
+        if (Level17Done == 2) {
+            Completion += 2
+        }
+    }
+    if (Level23Done == 1) {
+        Completion += 1
+    } else {
+        if (Level23Done == 2) {
+            Completion += 2
+        }
+    }
+    if (LevelSSDone == 1) {
+        Completion += 1
+    } else {
+        if (LevelSSDone == 2) {
+            Completion += 2
+        }
+    }
+    if (Completion == 0) {
+        mySprite11 = sprites.create(img`
+            f f f f f f f f 
+            f f d d d e f f 
+            f f d e f f f f 
+            f f d d e f f f 
+            f f d e f f f f 
+            f f d e f f f f 
+            f f f f f f f f 
+            f f f f f f f f 
+            `, SpriteKind.Rank)
+        tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+    } else {
+        if (Completion <= 20) {
+            mySprite11 = sprites.create(img`
+                f f f f f f f f 
+                f f c c d f f f 
+                f f c d c d f f 
+                f f c d c d f f 
+                f f c d c d f f 
+                f f c c d f f f 
+                f f f f f f f f 
+                f f f f f f f f 
+                `, SpriteKind.Rank)
+            tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+        } else {
+            if (Completion <= 40) {
+                mySprite11 = sprites.create(img`
+                    f f f f f f f f 
+                    f f b b b c f f 
+                    f f b c f f f f 
+                    f f b c f f f f 
+                    f f b c f f f f 
+                    f f b b b c f f 
+                    f f f f f f f f 
+                    f f f f f f f f 
+                    `, SpriteKind.Rank)
+                tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+            } else {
+                if (Completion <= 60) {
+                    mySprite11 = sprites.create(img`
+                        f f f f f f f f 
+                        f f a a a b f f 
+                        f f a b a b f f 
+                        f f a a b f f f 
+                        f f a b a b f f 
+                        f f a a a b f f 
+                        f f f f f f f f 
+                        f f f f f f f f 
+                        `, SpriteKind.Rank)
+                    tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+                } else {
+                    if (Completion <= 80) {
+                        mySprite11 = sprites.create(img`
+                            f f f f f f f f 
+                            f f 9 9 9 a f f 
+                            f f 9 a 9 a f f 
+                            f f 9 9 9 a f f 
+                            f f 9 a 9 a f f 
+                            f f 9 a 9 a f f 
+                            f f f f f f f f 
+                            f f f f f f f f 
+                            `, SpriteKind.Rank)
+                        tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+                    } else {
+                        if (Completion < 100) {
+                            mySprite11 = sprites.create(img`
+                                f f f f f f f f 
+                                f f 1 1 1 9 f f 
+                                f f 1 9 f f f f 
+                                f f 1 1 1 9 f f 
+                                f f f f 1 9 f f 
+                                f f 1 1 1 9 f f 
+                                f f f f f f f f 
+                                f f f f f f f f 
+                                `, SpriteKind.Rank)
+                            tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+                        } else {
+                            if (Completion == 100) {
+                                mySprite11 = sprites.create(img`
+                                    f f f f f f f f 
+                                    f f 1 1 1 9 f f 
+                                    f f 1 9 f f f f 
+                                    f f 1 1 1 9 f f 
+                                    f f f f 1 9 f f 
+                                    f f 1 1 1 9 f f 
+                                    f f f f f f f f 
+                                    f f f f f f f f 
+                                    `, SpriteKind.Rank)
+                                tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+                                mySprite11 = sprites.create(img`
+                                    f f f f f f f f 
+                                    1 1 1 9 f f f f 
+                                    1 9 f f f f f f 
+                                    1 1 1 9 f f f f 
+                                    f f 1 9 f f f f 
+                                    1 1 1 9 f f f f 
+                                    f f f f f f f f 
+                                    f f f f f f f f 
+                                    `, SpriteKind.Rank)
+                                tiles.placeOnTile(mySprite11, tiles.getTileLocation(1, 8))
+                            } else {
+                                if (Completion == 101) {
+                                    mySprite11 = sprites.create(img`
+                                        f f f f f f f f 
+                                        f f 1 1 1 9 f f 
+                                        f f 1 9 f f f f 
+                                        f f 1 1 1 9 f f 
+                                        f f f f 1 9 f f 
+                                        f f 1 1 1 9 f f 
+                                        f f f f f f f f 
+                                        f f f f f f f f 
+                                        `, SpriteKind.Rank)
+                                    tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+                                    mySprite11 = sprites.create(img`
+                                        f f f f f f f f 
+                                        1 1 1 9 f f 1 1 
+                                        1 9 f f f f 1 9 
+                                        1 1 1 9 f f 1 1 
+                                        f f 1 9 f f f f 
+                                        1 1 1 9 f f 1 1 
+                                        f f f f f f f f 
+                                        f f f f f f f f 
+                                        `, SpriteKind.Rank)
+                                    tiles.placeOnTile(mySprite11, tiles.getTileLocation(1, 8))
+                                    mySprite11 = sprites.create(img`
+                                        f f f f f f f f 
+                                        1 9 f f f f f f 
+                                        f f f f f f f f 
+                                        1 9 f f f f f f 
+                                        1 9 f f f f f f 
+                                        1 9 f f f f f f 
+                                        f f f f f f f f 
+                                        f f f f f f f f 
+                                        `, SpriteKind.Rank)
+                                    tiles.placeOnTile(mySprite11, tiles.getTileLocation(2, 8))
+                                } else {
+                                    if (Completion == 102) {
+                                        mySprite11 = sprites.create(img`
+                                            f f f f f f f f 
+                                            f f 5 5 5 4 f f 
+                                            f f 5 4 5 4 f f 
+                                            f f 5 5 5 4 f f 
+                                            f f 5 4 f f f f 
+                                            f f 5 4 f f f f 
+                                            f f f f f f f f 
+                                            f f f f f f f f 
+                                            `, SpriteKind.Rank)
+                                        tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile135`, function (sprite, location) {
     mySprite8 = sprites.create(img`
         . . . . . . . . 
@@ -12419,16 +12639,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile138`, function (sprite,
 function Difficulty () {
     myMenu2 = miniMenu.createMenu(
     miniMenu.createMenuItem("-Lenient (Easy)"),
-    miniMenu.createMenuItem("-Regular (Hard)")
+    miniMenu.createMenuItem("-Regular (Hard)"),
+    miniMenu.createMenuItem("-Prime (Brutal)")
     )
     myMenu2.setDimensions(100, 100)
+    myMenu2.setPosition(75, 85)
     myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Background, 15)
     myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 15)
     myMenu2.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 4)
     myMenu2.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 5)
     myMenu2.onSelectionChanged(function (selection, selectedIndex) {
+        story.clearAllText()
         if (selectedIndex == 0) {
-            story.clearAllText()
             sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
             mySprite10 = sprites.create(img`
                 a a f f f f f f f f f f f f a a 
@@ -12448,35 +12670,63 @@ function Difficulty () {
                 f f f a 1 f a 1 1 a f 1 a f f f 
                 f f f f f f f a a f f f f f f f 
                 `, SpriteKind.Nothing)
-            mySprite10.setPosition(75, 26)
+            mySprite10.setPosition(75, 22)
             Difficult = 1
-            story.printDialog("5 Hearts, Health Regen. Play for less precise players but can limit unlocks and perfects.", 80, 98, 50, 150, 1, 15, story.TextSpeed.Fast)
-        } else {
-            if (selectedIndex == 1) {
-                story.clearAllText()
-                sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
-                mySprite10 = sprites.create(img`
-                    a a f f f f f f f f f f f f a a 
-                    a 1 1 f f 1 1 1 1 1 1 f f 1 1 a 
-                    f 1 f f 1 1 1 1 1 1 1 1 f f 1 f 
-                    f f f 1 1 1 1 1 1 1 1 1 1 f f f 
-                    f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f 
-                    f f f 1 f f 1 1 1 1 f f 1 f f f 
-                    f 1 f 1 e f f 1 1 f f e 1 f 1 f 
-                    f f f 1 e e f 1 1 f e e 1 f f f 
-                    f 1 f a 1 e e 1 1 e e 1 a f 1 f 
-                    1 1 f f a 1 1 1 1 1 1 a f f 1 1 
-                    1 a f f f f 1 1 1 1 f f f f a 1 
-                    a f f 1 f f a 1 1 a f f 1 f f a 
-                    f f 1 1 1 f f a a f f 1 1 1 f f 
-                    f f a 1 f f f f f f f f 1 a f f 
-                    f f a 1 f f a 1 1 a f f 1 a f f 
-                    f f f a 1 f f a a f f 1 a f f f 
-                    `, SpriteKind.Nothing)
-                mySprite10.setPosition(75, 26)
-                Difficult = 2
+            timer.background(function () {
+                story.printDialog("5 Hearts, Health Regen. Play for less precise players but can limit unlocks and perfects.", 80, 98, 50, 150, 1, 15, story.TextSpeed.Fast)
+            })
+        }
+        if (selectedIndex == 1) {
+            sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+            mySprite10 = sprites.create(img`
+                a a f f f f f f f f f f f f a a 
+                a 1 1 f f 1 1 1 1 1 1 f f 1 1 a 
+                f 1 f f 1 1 1 1 1 1 1 1 f f 1 f 
+                f f f 1 1 1 1 1 1 1 1 1 1 f f f 
+                f 1 f 1 1 1 1 1 1 1 1 1 1 f 1 f 
+                f f f 1 f f 1 1 1 1 f f 1 f f f 
+                f 1 f 1 e f f 1 1 f f e 1 f 1 f 
+                f f f 1 e e f 1 1 f e e 1 f f f 
+                f 1 f a 1 e e 1 1 e e 1 a f 1 f 
+                1 1 f f a 1 1 1 1 1 1 a f f 1 1 
+                1 a f f f f 1 1 1 1 f f f f a 1 
+                a f f 1 f f a 1 1 a f f 1 f f a 
+                f f 1 1 1 f f a a f f 1 1 1 f f 
+                f f a 1 f f f f f f f f 1 a f f 
+                f f a 1 f f a 1 1 a f f 1 a f f 
+                f f f a 1 f f a a f f 1 a f f f 
+                `, SpriteKind.Nothing)
+            mySprite10.setPosition(75, 22)
+            Difficult = 2
+            timer.background(function () {
                 story.printDialog("3 Hearts, No Health Regen. Play smart and precise in order to complete levels.", 80, 98, 50, 150, 1, 15, story.TextSpeed.Fast)
-            }
+            })
+        }
+        if (selectedIndex == 2) {
+            sprites.destroyAllSpritesOfKind(SpriteKind.Nothing)
+            mySprite10 = sprites.create(img`
+                4 4 f f f f f f f f f f f f 4 4 
+                4 5 1 f f 1 1 1 1 1 1 f f 1 5 4 
+                f 1 f f 1 1 1 5 5 1 1 1 f f 1 f 
+                f f f 1 1 1 5 4 4 5 1 1 1 f f f 
+                f 5 f 1 1 1 1 5 5 1 1 1 1 f 5 f 
+                f f f 1 f f 1 1 1 1 f f 1 f f f 
+                f 1 f 1 e f f 1 1 f f e 1 f 1 f 
+                f f f 1 e e f 1 1 f e e 1 f f f 
+                f 1 f a 5 e e 1 1 e e 5 a f 1 f 
+                1 5 f f 4 5 5 1 1 5 5 4 f f 5 1 
+                5 4 f f f f 5 1 1 5 f f f f 4 5 
+                4 f f 1 f f 4 1 1 4 f f 1 f f 4 
+                f f 1 1 1 f f a a f f 1 1 1 f f 
+                f f 4 1 f f f f f f f f 1 4 f f 
+                f f 4 5 f f a 1 1 a f f 5 4 f f 
+                f f f 4 5 f f a a f f 5 4 f f f 
+                `, SpriteKind.Nothing)
+            mySprite10.setPosition(75, 22)
+            Difficult = 3
+            timer.background(function () {
+                story.printDialog("1 Heart, No Regen. Complete understanding of player movement is required to play.", 80, 98, 50, 150, 1, 15, story.TextSpeed.Fast)
+            })
         }
     })
     myMenu2.onButtonPressed(controller.A, function (selection, selectedIndex) {
@@ -13561,6 +13811,7 @@ function Menu () {
         tiles.setTileAt(tiles.getTileLocation(16, 7), assets.tile`myTile57`)
     }
     Skin2()
+    Percentage()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile31`, function (sprite, location) {
     if (controller.A.isPressed()) {
@@ -14681,10 +14932,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, 
     }
 })
 function Simulate_Spikes () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Rank)
     profilelife.setInvisible(false)
     if (Difficult == 1) {
         profilelife.setMaxLife(5)
         info.setLife(5)
+    }
+    if (Difficult == 3) {
+        profilelife.setMaxLife(1)
+        info.setLife(1)
     }
     for (let value of tiles.getTilesByType(assets.tile`myTile74`)) {
         mySprite2 = sprites.create(img`
@@ -14944,8 +15200,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, 
 let Shooter = 0
 let mySprite2: Sprite = null
 let textSprite: TextSprite = null
-let Level20Done = 0
-let Level10Done = 0
 let Unlock = 0
 let mySprite6: Sprite = null
 let mySprite7: Sprite = null
@@ -14956,26 +15210,30 @@ let Level12Done = 0
 let Level13Done = 0
 let Level14Done = 0
 let Level16Done = 0
-let Level17Done = 0
 let Level18Done = 0
 let Level19Done = 0
 let Level21Done = 0
 let Level22Done = 0
-let Level23Done = 0
 let Level24Done = 0
-let Level8Done = 0
 let Level7Done = 0
 let Level6Done = 0
 let Level4Done = 0
 let Level3Done = 0
 let Level2Done = 0
 let Level1Done = 0
-let LevelSSDone = 0
 let CycleLevel = 0
 let myMenu2: miniMenu.MenuSprite = null
 let mySprite4: Sprite = null
-let LevelsDone = 0
 let mySprite8: Sprite = null
+let mySprite11: Sprite = null
+let LevelSSDone = 0
+let Level23Done = 0
+let Level17Done = 0
+let Level8Done = 0
+let Level10Done = 0
+let Level20Done = 0
+let LevelsDone = 0
+let Completion = 0
 let Skin = 0
 let myMenu: miniMenu.MenuSprite = null
 let Perfects = 0
@@ -15733,6 +15991,164 @@ game.onUpdateInterval(1000, function () {
             InterpolationCurve.Linear
             ), music.PlaybackMode.InBackground)
         })
+    }
+})
+forever(function () {
+    if (Difficult == 1) {
+        if (Level1Done == 2) {
+            Level1Done = 1
+        }
+        if (Level2Done == 2) {
+            Level2Done = 1
+        }
+        if (Level3Done == 2) {
+            Level3Done = 1
+        }
+        if (Level4Done == 2) {
+            Level4Done = 1
+        }
+        if (Level5Done == 2) {
+            Level5Done = 1
+        }
+        if (Level6Done == 2) {
+            Level6Done = 1
+        }
+        if (Level7Done == 2) {
+            Level7Done = 1
+        }
+        if (Level8Done == 2) {
+            Level8Done = 1
+        }
+        if (Level9Done == 2) {
+            Level9Done = 1
+        }
+        if (Level10Done == 2) {
+            Level10Done = 1
+        }
+        if (Level11Done == 2) {
+            Level11Done = 1
+        }
+        if (Level12Done == 2) {
+            Level12Done = 1
+        }
+        if (Level13Done == 2) {
+            Level13Done = 1
+        }
+        if (Level14Done == 2) {
+            Level14Done = 1
+        }
+        if (Level15Done == 2) {
+            Level15Done = 1
+        }
+        if (Level16Done == 2) {
+            Level16Done = 1
+        }
+        if (Level17Done == 2) {
+            Level17Done = 1
+        }
+        if (Level18Done == 2) {
+            Level18Done = 1
+        }
+        if (Level19Done == 2) {
+            Level19Done = 1
+        }
+        if (Level20Done == 2) {
+            Level20Done = 1
+        }
+        if (Level21Done == 2) {
+            Level21Done = 1
+        }
+        if (Level22Done == 2) {
+            Level22Done = 1
+        }
+        if (Level23Done == 2) {
+            Level23Done = 1
+        }
+        if (Level24Done == 2) {
+            Level24Done = 1
+        }
+        if (LevelSSDone == 2) {
+            LevelSSDone = 1
+        }
+    }
+})
+forever(function () {
+    if (Difficult == 3) {
+        if (Level1Done == 1) {
+            Level1Done = 2
+        }
+        if (Level2Done == 1) {
+            Level2Done = 2
+        }
+        if (Level3Done == 1) {
+            Level3Done = 2
+        }
+        if (Level4Done == 1) {
+            Level4Done = 2
+        }
+        if (Level5Done == 1) {
+            Level5Done = 2
+        }
+        if (Level6Done == 1) {
+            Level6Done = 2
+        }
+        if (Level7Done == 1) {
+            Level7Done = 2
+        }
+        if (Level8Done == 1) {
+            Level8Done = 2
+        }
+        if (Level9Done == 1) {
+            Level9Done = 2
+        }
+        if (Level10Done == 1) {
+            Level10Done = 2
+        }
+        if (Level11Done == 1) {
+            Level11Done = 2
+        }
+        if (Level12Done == 1) {
+            Level12Done = 2
+        }
+        if (Level13Done == 1) {
+            Level13Done = 2
+        }
+        if (Level14Done == 1) {
+            Level14Done = 2
+        }
+        if (Level15Done == 1) {
+            Level15Done = 2
+        }
+        if (Level16Done == 1) {
+            Level16Done = 2
+        }
+        if (Level17Done == 1) {
+            Level17Done = 2
+        }
+        if (Level18Done == 1) {
+            Level18Done = 2
+        }
+        if (Level19Done == 1) {
+            Level19Done = 2
+        }
+        if (Level20Done == 1) {
+            Level20Done = 2
+        }
+        if (Level21Done == 1) {
+            Level21Done = 2
+        }
+        if (Level22Done == 1) {
+            Level22Done = 2
+        }
+        if (Level23Done == 1) {
+            Level23Done = 2
+        }
+        if (Level24Done == 1) {
+            Level24Done = 2
+        }
+        if (LevelSSDone == 1) {
+            LevelSSDone = 2
+        }
     }
 })
 forever(function () {
