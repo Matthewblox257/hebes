@@ -4427,7 +4427,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile42`, function (sprite, 
             ), music.PlaybackMode.InBackground)
         }
     } else {
-        if (info.life() < 4) {
+        if (info.life() < 5) {
             tiles.setTileAt(location, assets.tile`myTile43`)
             extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
             info.changeLifeBy(1)
@@ -8444,6 +8444,16 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, 
             scene.cameraShake(4, 500)
             color.startFadeFromCurrent(color.White, 1000)
             pause(5000)
+            if (PlayingLevel == 26) {
+                if (LevelSSDone == 0) {
+                    LevelSSDone = 1
+                } else {
+                    LevelsDone += -1
+                }
+                if (info.life() == 3) {
+                    LevelSSDone = 2
+                }
+            }
             LevelsDone += 1
             if (PlayingLevel == 1) {
                 if (Level1Done == 0) {
@@ -11886,6 +11896,52 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile148`, function (sprite, location) {
+    if (controller.A.isPressed()) {
+        timer.after(1, function () {
+            controller.moveSprite(mySprite, 0, 0)
+            tiles.setTileAt(location, assets.tile`transparency8`)
+            music.stopAllSounds()
+            music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000a0000000100050405060708`), music.PlaybackMode.InBackground)
+            scene.cameraShake(4, 500)
+            color.startFadeFromCurrent(color.White, 1000)
+            pause(5000)
+            controller.moveSprite(mySprite, 70, 0)
+            sprites.destroyAllSpritesOfKind(SpriteKind.Text)
+            color.startFadeFromCurrent(color.originalPalette, 1000)
+            PlayingLevel = 26
+            tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level52`))
+            tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 13))
+            profilelife.setFilledLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e 3 3 e f 2 2 f 
+                e 3 3 3 2 2 2 f 
+                e 3 3 3 2 2 2 f 
+                . e 3 3 2 2 f . 
+                . . e 3 2 f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setEmptyLifeImage(img`
+                . . . . . . . . 
+                . e e . . f f . 
+                e d d e f e e f 
+                e d d d e e e f 
+                e d d d e e e f 
+                . e d d e e f . 
+                . . e d e f . . 
+                . . . e f . . . 
+                `)
+            profilelife.setMaxLife(3)
+            info.setLife(3)
+            Simulate_Spikes()
+            music.play(music.createSong(hex`0064000408040500001c00010a006400f40164000004000000000000000000000000000500000460000000040001180c00100001181000140001931c00200001162000240001142c003000011430003400011138003c0001934000440001184c00500001185000540001935c00600001166000640001146c007000011470007400011678007c00019705001c000f0a006400f4010a000004000000000000000000000000000000000272000000020001240600080001240c000e00012412001400012418001a0001241e002000012420002200012430003800012738003c0001a63c00400001a64000420001244600480001244c004e00012452005400012458005a0001245e006000012460006200012470007800012978008000012707001c00020a006400f4016400000400000000000000000000000000000000037e0000000400011804000800011b08000c00019f18001c0001181c002000011b20002400012026002a0001202c003000012030003800011b38003c00019a3c004000019a40004400011844004800011b48004c00019f58005c0001185c006000011b60006400012066006a0001206c007000012070007800011d78008000019f08001c000e050046006603320000040a002d0000006400140001320002010002300000001000010c10001800018720003000010c30003800010840005000010c50005800018760007000010c70007800010809010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8009a0000000100010308000900020308100011000103180019000203081e001f00010820002100010328002900020308300031000103320033000108380039000203083e003f00010840004100010348004900020308500051000103580059000203085e005f000108600061000203086800690002030870007100020308740075000108780079000203087a007b0001087c007d0001087e007f000108`), music.PlaybackMode.LoopingInBackground)
+            tileUtil.coverAllTiles(assets.tile`myTile44`, assets.tile`myTile150`)
+        })
+    } else {
+        mySprite.sayText("A", 50, false)
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -13278,6 +13334,14 @@ function Menu () {
             Perfects += 1
         }
     }
+    if (LevelSSDone == 1) {
+        tileUtil.coverAllTiles(assets.tile`myTile148`, assets.tile`myTile151`)
+    } else {
+        if (LevelSSDone == 2) {
+            tileUtil.coverAllTiles(assets.tile`myTile148`, assets.tile`myTile150`)
+            Perfects += 1
+        }
+    }
     if (Level2Done == 1) {
         tileUtil.coverAllTiles(assets.tile`myTile26`, assets.tile`myTile18`)
     } else {
@@ -14619,8 +14683,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, 
 function Simulate_Spikes () {
     profilelife.setInvisible(false)
     if (Difficult == 1) {
-        profilelife.setMaxLife(4)
-        info.setLife(4)
+        profilelife.setMaxLife(5)
+        info.setLife(5)
     }
     for (let value of tiles.getTilesByType(assets.tile`myTile74`)) {
         mySprite2 = sprites.create(img`
@@ -14860,10 +14924,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile70`, function (sprite, 
             ), music.PlaybackMode.InBackground)
         }
     } else {
-        if (info.life() < 4) {
+        if (info.life() < 5) {
             tiles.setTileAt(location, assets.tile`myTile43`)
             extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
-            info.changeLifeBy(2)
+            info.changeLifeBy(5)
             music.play(music.createSoundEffect(
             WaveShape.Triangle,
             1,
@@ -14906,6 +14970,7 @@ let Level4Done = 0
 let Level3Done = 0
 let Level2Done = 0
 let Level1Done = 0
+let LevelSSDone = 0
 let CycleLevel = 0
 let myMenu2: miniMenu.MenuSprite = null
 let mySprite4: Sprite = null
