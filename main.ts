@@ -3758,11 +3758,11 @@ function Percentage () {
     if (Completion == 0) {
         mySprite11 = sprites.create(img`
             f f f f f f f f 
-            f f d d d e f f 
-            f f d e f f f f 
-            f f d d e f f f 
-            f f d e f f f f 
-            f f d e f f f f 
+            f 5 5 5 4 f f f 
+            f 5 4 f f f f f 
+            f 5 5 4 f f f f 
+            f 5 4 f f f f f 
+            f 5 4 f 5 4 f f 
             f f f f f f f f 
             f f f f f f f f 
             `, SpriteKind.Rank)
@@ -3771,11 +3771,11 @@ function Percentage () {
         if (Completion <= 20) {
             mySprite11 = sprites.create(img`
                 f f f f f f f f 
-                f f c c d f f f 
-                f f c d c d f f 
-                f f c d c d f f 
-                f f c d c d f f 
-                f f c c d f f f 
+                f 5 5 4 f f f f 
+                f 5 4 5 4 f f f 
+                f 5 4 5 4 f f f 
+                f 5 4 5 4 f f f 
+                f 5 5 4 f 5 4 f 
                 f f f f f f f f 
                 f f f f f f f f 
                 `, SpriteKind.Rank)
@@ -3784,11 +3784,11 @@ function Percentage () {
             if (Completion <= 40) {
                 mySprite11 = sprites.create(img`
                     f f f f f f f f 
-                    f f b b b c f f 
-                    f f b c f f f f 
-                    f f b c f f f f 
-                    f f b c f f f f 
-                    f f b b b c f f 
+                    f 5 5 5 4 f f f 
+                    f 5 4 f f f f f 
+                    f 5 4 f f f f f 
+                    f 5 4 f f f f f 
+                    f 5 5 5 4 5 4 f 
                     f f f f f f f f 
                     f f f f f f f f 
                     `, SpriteKind.Rank)
@@ -3797,11 +3797,11 @@ function Percentage () {
                 if (Completion <= 60) {
                     mySprite11 = sprites.create(img`
                         f f f f f f f f 
-                        f f a a a b f f 
-                        f f a b a b f f 
-                        f f a a b f f f 
-                        f f a b a b f f 
-                        f f a a a b f f 
+                        f 5 5 5 4 f f f 
+                        f 5 4 5 4 f f f 
+                        f 5 5 4 f f f f 
+                        f 5 4 5 4 f f f 
+                        f 5 5 5 4 5 4 f 
                         f f f f f f f f 
                         f f f f f f f f 
                         `, SpriteKind.Rank)
@@ -3810,11 +3810,11 @@ function Percentage () {
                     if (Completion <= 80) {
                         mySprite11 = sprites.create(img`
                             f f f f f f f f 
-                            f f 9 9 9 a f f 
-                            f f 9 a 9 a f f 
-                            f f 9 9 9 a f f 
-                            f f 9 a 9 a f f 
-                            f f 9 a 9 a f f 
+                            f 5 5 5 4 f f f 
+                            f 5 4 5 4 f f f 
+                            f 5 5 5 4 f f f 
+                            f 5 4 5 4 f f f 
+                            f 5 4 5 4 5 4 f 
                             f f f f f f f f 
                             f f f f f f f f 
                             `, SpriteKind.Rank)
@@ -3823,11 +3823,11 @@ function Percentage () {
                         if (Completion < 100) {
                             mySprite11 = sprites.create(img`
                                 f f f f f f f f 
-                                f f 1 1 1 9 f f 
-                                f f 1 9 f f f f 
-                                f f 1 1 1 9 f f 
-                                f f f f 1 9 f f 
-                                f f 1 1 1 9 f f 
+                                f 5 5 5 4 f f f 
+                                f 5 4 f f f f f 
+                                f 5 5 5 4 f f f 
+                                f f f 5 4 f f f 
+                                f 5 5 5 4 5 4 f 
                                 f f f f f f f f 
                                 f f f f f f f f 
                                 `, SpriteKind.Rank)
@@ -3836,22 +3836,22 @@ function Percentage () {
                             if (Completion == 100) {
                                 mySprite11 = sprites.create(img`
                                     f f f f f f f f 
-                                    f f 1 1 1 9 f f 
-                                    f f 1 9 f f f f 
-                                    f f 1 1 1 9 f f 
-                                    f f f f 1 9 f f 
-                                    f f 1 1 1 9 f f 
+                                    f 5 5 5 4 f f 5 
+                                    f 5 4 f f f f 5 
+                                    f 5 5 5 4 f f 5 
+                                    f f f 5 4 f f f 
+                                    f 5 5 5 4 f f 5 
                                     f f f f f f f f 
                                     f f f f f f f f 
                                     `, SpriteKind.Rank)
                                 tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
                                 mySprite11 = sprites.create(img`
                                     f f f f f f f f 
-                                    1 1 1 9 f f f f 
-                                    1 9 f f f f f f 
-                                    1 1 1 9 f f f f 
-                                    f f 1 9 f f f f 
-                                    1 1 1 9 f f f f 
+                                    5 5 4 f f f f f 
+                                    4 f f f f f f f 
+                                    5 5 4 f f f f f 
+                                    f 5 4 f f f f f 
+                                    5 5 4 5 4 f f f 
                                     f f f f f f f f 
                                     f f f f f f f f 
                                     `, SpriteKind.Rank)
@@ -3860,33 +3860,33 @@ function Percentage () {
                                 if (Completion == 101) {
                                     mySprite11 = sprites.create(img`
                                         f f f f f f f f 
-                                        f f 1 1 1 9 f f 
-                                        f f 1 9 f f f f 
-                                        f f 1 1 1 9 f f 
-                                        f f f f 1 9 f f 
-                                        f f 1 1 1 9 f f 
+                                        f 5 5 5 4 f f 5 
+                                        f 5 4 f f f f 5 
+                                        f 5 5 5 4 f f 5 
+                                        f f f 5 4 f f f 
+                                        f 5 5 5 4 f f 5 
                                         f f f f f f f f 
                                         f f f f f f f f 
                                         `, SpriteKind.Rank)
                                     tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 8))
                                     mySprite11 = sprites.create(img`
                                         f f f f f f f f 
-                                        1 1 1 9 f f 1 1 
-                                        1 9 f f f f 1 9 
-                                        1 1 1 9 f f 1 1 
-                                        f f 1 9 f f f f 
-                                        1 1 1 9 f f 1 1 
+                                        5 5 4 f 5 5 5 4 
+                                        4 f f f 5 4 f f 
+                                        5 5 4 f 5 5 5 4 
+                                        f 5 4 f f f 5 4 
+                                        5 5 4 f 5 5 5 4 
                                         f f f f f f f f 
                                         f f f f f f f f 
                                         `, SpriteKind.Rank)
                                     tiles.placeOnTile(mySprite11, tiles.getTileLocation(1, 8))
                                     mySprite11 = sprites.create(img`
                                         f f f f f f f f 
-                                        1 9 f f f f f f 
                                         f f f f f f f f 
-                                        1 9 f f f f f f 
-                                        1 9 f f f f f f 
-                                        1 9 f f f f f f 
+                                        f f f f f f f f 
+                                        f f f f f f f f 
+                                        f f f f f f f f 
+                                        5 4 f f f f f f 
                                         f f f f f f f f 
                                         f f f f f f f f 
                                         `, SpriteKind.Rank)
@@ -3895,11 +3895,11 @@ function Percentage () {
                                     if (Completion == 102) {
                                         mySprite11 = sprites.create(img`
                                             f f f f f f f f 
-                                            f f 5 5 5 4 f f 
-                                            f f 5 4 5 4 f f 
-                                            f f 5 5 5 4 f f 
-                                            f f 5 4 f f f f 
-                                            f f 5 4 f f f f 
+                                            f 5 5 5 4 5 4 f 
+                                            f 5 4 5 4 5 4 f 
+                                            f 5 5 5 4 5 4 f 
+                                            f 5 4 f f f f f 
+                                            f 5 4 f f 5 4 f 
                                             f f f f f f f f 
                                             f f f f f f f f 
                                             `, SpriteKind.Rank)
@@ -3912,6 +3912,45 @@ function Percentage () {
                 }
             }
         }
+    }
+    if (Difficult == 3) {
+        mySprite11 = sprites.create(img`
+            f f f f f f f f 
+            f f 1 4 4 1 f f 
+            f 1 1 1 1 1 1 f 
+            f 1 5 1 1 5 1 f 
+            f a 4 1 1 4 a f 
+            f f a 1 1 a f f 
+            f a f a a f a f 
+            f f f f f f f f 
+            `, SpriteKind.Rank)
+        tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 12))
+    }
+    if (Difficult == 2) {
+        mySprite11 = sprites.create(img`
+            f f f f f f f f 
+            f f 1 1 1 1 f f 
+            f 1 1 1 1 1 1 f 
+            f 1 c 1 1 c 1 f 
+            f a d 1 1 d a f 
+            f f a 1 1 a f f 
+            f a f a a f a f 
+            f f f f f f f f 
+            `, SpriteKind.Rank)
+        tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 12))
+    }
+    if (Difficult == 1) {
+        mySprite11 = sprites.create(img`
+            f f f f f f f f 
+            f f 1 1 1 1 f f 
+            f 1 1 1 1 1 1 f 
+            f 1 f 1 1 f 1 f 
+            f a e 1 1 e a f 
+            f f a 1 1 a f f 
+            f f f a a f f f 
+            f f f f f f f f 
+            `, SpriteKind.Rank)
+        tiles.placeOnTile(mySprite11, tiles.getTileLocation(0, 12))
     }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile135`, function (sprite, location) {
@@ -8640,6 +8679,3038 @@ function PhasedBack () {
         }
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile59`, function (sprite, location) {
+    if (controller.A.isPressed()) {
+        timer.after(1, function () {
+            tiles.setTileAt(location, assets.tile`myTile61`)
+            GameStart = 0
+            controller.moveSprite(mySprite, 0, 0)
+            myMenu = miniMenu.createMenu(
+            miniMenu.createMenuItem("Completion", img`
+                . e e . . e e . 
+                . e e . . e e . 
+                . . . e e e e . 
+                . . . e e e e . 
+                . e e e e . . . 
+                . e e e e . . . 
+                . e e . . e e . 
+                . e e . . e e . 
+                `),
+            miniMenu.createMenuItem("Difficulty", img`
+                . 9 9 9 9 9 9 . 
+                . 9 9 9 9 9 9 . 
+                . f f a a f f . 
+                . f f a a f f . 
+                . a a a a a a . 
+                . a a a a a a . 
+                . . . b b . . . 
+                . . . b b . . . 
+                `),
+            miniMenu.createMenuItem("Achievements", img`
+                . 3 3 3 3 2 2 . 
+                . 3 3 3 3 2 2 . 
+                . 2 2 2 2 2 2 . 
+                . 2 2 2 2 2 2 . 
+                . . . 2 2 . . . 
+                . . . 2 2 . . . 
+                . 3 3 3 3 2 2 . 
+                . 3 3 3 3 2 2 . 
+                `),
+            miniMenu.createMenuItem("Creators", img`
+                . f f . . f f . 
+                . f f . . f f . 
+                . f f f f f f . 
+                . f f f f f f . 
+                . 1 1 f f 1 1 . 
+                . 1 1 f f 1 1 . 
+                . f f f f f f . 
+                . f f f f f f . 
+                `)
+            )
+            myMenu.setDimensions(100, 100)
+            myMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Background, 11)
+            myMenu.x = scene.cameraProperty(CameraProperty.X)
+            myMenu.y = scene.cameraProperty(CameraProperty.Y)
+            pause(500)
+            myMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
+                if (selectedIndex == 3) {
+                    if (Perfects >= 15) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(6, ExtraEffectPresetShape.Spark), 100)
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . f 7 f . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . . 4 7 4 . 
+                            . 7 f f 7 7 7 . 
+                            . . f 6 f 6 f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . 6 . 6 . 
+                            4 . . . f 7 f . 
+                            7 . . f 4 7 4 . 
+                            . 7 f 6 7 7 7 . 
+                            . . f . f . f . 
+                            . . f . . . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . 5 . 5 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . 5 5 5 5 5 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 5 5 5 5 5 5 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            5 . . . 5 5 5 . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 5 . 5 . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f f . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . f f f f f . 
+                            . . 5 . 5 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . f f f 1 f 1 . 
+                            . . 5 5 5 5 5 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            f . . . f f f . 
+                            . 5 5 5 5 5 5 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . f . f . 
+                            5 . . . 5 5 5 . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 5 . 5 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . f . f . f . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.NotMoving)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 6 . 6 . . . 4 
+                            . f 7 f . . . 7 
+                            . 4 7 4 f f 7 . 
+                            . 7 7 7 6 f . . 
+                            f . f . . . f . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 4 . 
+                            . 6 . 6 . . 7 . 
+                            . f 7 f . . 7 . 
+                            . 4 7 4 f f . . 
+                            . 7 7 7 6 f . . 
+                            f . f . f . . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            f . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . f . . . f . f 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 4 . . . . . . 
+                            . 7 . . 6 . 6 . 
+                            . 7 . . f 7 f . 
+                            . . f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . . . f . f . f 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            . f . . . f . f 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            4 . . . 6 . 6 . 
+                            7 . . . f 7 f . 
+                            . 7 f f 4 7 4 . 
+                            . . f 6 7 7 7 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 6 . 6 . . . 4 
+                            . f 7 f . . . 7 
+                            . 4 7 4 f f 7 . 
+                            . 7 7 7 6 f . . 
+                            f . f . . . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 6 . 6 . . . 4 
+                            . f 7 f . . . 7 
+                            . 4 7 4 f f 7 . 
+                            . 7 7 7 6 f . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingLeft)
+                        )
+                        Skin = 3
+                    }
+                }
+                if (selectedIndex == 4) {
+                    if (Perfects >= 23) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 100)
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(3, ExtraEffectPresetShape.Spark), 100)
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(7, ExtraEffectPresetShape.Spark), 100)
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 5 3 7 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            b . . . e . b . 
+                            b . . . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            b . . . e . b . 
+                            b . . . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            b . . . e . b . 
+                            b . . . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            b . . . e . b . 
+                            b . . . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . . 5 . . . . 
+                            . . 5 5 . . . . 
+                            b . . . e . b . 
+                            b . 5 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . . 4 . . . . 
+                            . . 4 4 . . . . 
+                            b . . . e . b . 
+                            b . 4 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . . 5 . . . . 
+                            . . 5 5 . . . . 
+                            b . . . e . b . 
+                            b . 5 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . . 4 . . . . 
+                            . . 4 4 . . . . 
+                            b . . . e . b . 
+                            b . 4 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . . 5 . . . . 
+                            . . 5 5 . . . . 
+                            b . . . e . b . 
+                            b . 5 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . . 4 . . . . 
+                            . . 4 4 . . . . 
+                            b . . . e . b . 
+                            b . 4 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . . 5 . . . . 
+                            . . 5 5 . . . . 
+                            b . . . e . b . 
+                            b . 5 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . . 4 . . . . 
+                            . . 4 4 . . . . 
+                            b . . . e . b . 
+                            b . 4 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . . 5 . . . . 
+                            . . 5 5 . . . . 
+                            b . . . e . b . 
+                            b . 5 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . 5 . . . . . . 
+                            . . . 5 . . . . 
+                            . . 5 . . . . . 
+                            b . . . e . b . 
+                            b . 5 . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . 5 . . . . 
+                            . . 5 . . . . . 
+                            b . . . e . b . 
+                            b . . . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            b . . . e . b . 
+                            b . . . e d b . 
+                            . e d b 1 d 1 . 
+                            . . d b e d b . 
+                            . . d . e . b . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 7 . 3 . 
+                            3 . . . 7 5 3 . 
+                            . 7 5 3 1 5 1 . 
+                            . . 5 3 7 5 3 . 
+                            . . 5 . 7 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 5 . 7 . 
+                            7 . . . 5 3 7 . 
+                            . 5 3 7 1 3 1 . 
+                            . . 3 7 5 3 7 . 
+                            . . 3 . 5 . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 3 . 5 . 
+                            5 . . . 3 7 5 . 
+                            . 3 7 5 1 7 1 . 
+                            . . 7 5 3 7 5 . 
+                            . . 7 . 3 . 5 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.NotMoving)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 7 . 3 . . . 7 
+                            . 7 5 3 . . . 7 
+                            . 9 5 9 7 5 3 . 
+                            . 7 5 3 7 5 . . 
+                            3 . 5 . . . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 5 . 7 . . . 5 
+                            . 5 3 7 . . . 5 
+                            . 9 3 9 5 3 7 . 
+                            . 5 3 7 5 3 . . 
+                            7 . 3 . . . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . 5 . . . 3 
+                            . 3 7 5 . . . 3 
+                            . 9 7 9 3 7 5 . 
+                            . 3 7 5 3 7 . . 
+                            5 . 7 . . . 5 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 3 . 
+                            . 7 . 3 . . 3 . 
+                            . 7 5 3 . . 3 . 
+                            . 9 5 9 7 5 . . 
+                            . 7 5 3 7 5 . . 
+                            3 . 5 . 7 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 7 . 
+                            . 5 . 7 . . 7 . 
+                            . 5 3 7 . . 7 . 
+                            . 9 3 9 5 3 . . 
+                            . 5 3 7 5 3 . . 
+                            7 . 3 . 5 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 5 . 
+                            . 3 . 5 . . 5 . 
+                            . 3 7 5 . . 5 . 
+                            . 9 7 9 3 7 . . 
+                            . 3 7 5 3 7 . . 
+                            5 . 7 . 3 . . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 3 . 7 . 
+                            7 . . . 3 5 7 . 
+                            . 3 5 7 9 5 9 . 
+                            . . 5 7 3 5 7 . 
+                            . 3 . . . 5 . 3 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 7 . 5 . 
+                            5 . . . 7 3 5 . 
+                            . 7 3 5 9 3 9 . 
+                            . . 3 5 7 3 5 . 
+                            . 7 . . . 3 . 7 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 5 . 3 . 
+                            3 . . . 5 7 3 . 
+                            . 5 7 3 9 7 9 . 
+                            . . 7 3 5 7 3 . 
+                            . 5 . . . 7 . 5 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . . . . . . 
+                            . 3 . . 3 . 7 . 
+                            . 3 . . 3 5 7 . 
+                            . . 5 7 9 5 9 . 
+                            . . 5 7 3 5 7 . 
+                            . . . 7 . 5 . 3 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 7 . . . . . . 
+                            . 7 . . 7 . 5 . 
+                            . 7 . . 7 3 5 . 
+                            . . 3 5 9 3 9 . 
+                            . . 3 5 7 3 5 . 
+                            . . . 5 . 3 . 7 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 5 . . . . . . 
+                            . 5 . . 5 . 3 . 
+                            . 5 . . 5 7 3 . 
+                            . . 7 3 9 7 9 . 
+                            . . 7 3 5 7 3 . 
+                            . . . 3 . 7 . 5 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 3 . 7 . 
+                            7 . . . 3 5 7 . 
+                            . 3 5 7 1 5 1 . 
+                            . . 5 7 3 5 7 . 
+                            . 3 . . . 5 . 3 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 5 . 3 . 
+                            3 . . . 5 7 3 . 
+                            . 5 7 3 1 7 1 . 
+                            . . 7 3 5 7 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 7 . 5 . 
+                            5 . . . 7 3 5 . 
+                            . 7 3 5 1 3 1 . 
+                            . . 3 5 7 3 5 . 
+                            . 7 . . . 3 . 7 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            7 . . . 3 . 7 . 
+                            7 . . . 3 5 7 . 
+                            . 3 5 7 1 5 1 . 
+                            . . 5 7 3 5 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 5 . 3 . 
+                            3 . . . 5 7 3 . 
+                            . 5 7 3 1 7 1 . 
+                            . . 7 3 5 7 3 . 
+                            . 5 . . . 7 . 5 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 7 . 5 . 
+                            5 . . . 7 3 5 . 
+                            . 7 3 5 1 3 1 . 
+                            . . 3 5 7 3 5 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 7 . 3 . . . 7 
+                            . 7 5 3 . . . 7 
+                            . 1 5 1 7 5 3 . 
+                            . 7 5 3 7 5 . . 
+                            3 . 5 . . . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . 5 . . . 3 
+                            . 3 7 5 . . . 3 
+                            . 1 7 1 3 7 5 . 
+                            . 3 7 5 3 7 . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 5 . 7 . . . 5 
+                            . 5 3 7 . . . 5 
+                            . 1 3 1 5 3 7 . 
+                            . 5 3 7 5 3 . . 
+                            7 . 3 . . . 7 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 7 . 3 . . . 7 
+                            . 7 5 3 . . . 7 
+                            . 1 5 1 7 5 3 . 
+                            . 7 5 3 7 5 . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . 5 . . . 3 
+                            . 3 7 5 . . . 3 
+                            . 1 7 1 3 7 5 . 
+                            . 3 7 5 3 7 . . 
+                            5 . 7 . . . 5 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 5 . 7 . . . 5 
+                            . 5 3 7 . . . 5 
+                            . 1 3 1 5 3 7 . 
+                            . 5 3 7 5 3 . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingLeft)
+                        )
+                        Skin = 4
+                    }
+                }
+                if (selectedIndex == 2) {
+                    if (Perfects >= 9) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(3, ExtraEffectPresetShape.Spark), 100)
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 3 . 
+                            . . 2 . 2 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 3 2 . 
+                            . 2 2 2 9 3 9 . 
+                            . . 2 2 2 3 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 3 . 2 . 
+                            2 . . . 3 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 3 2 2 . 
+                            . . 2 . 3 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 3 9 2 9 . 
+                            . . 2 3 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 3 2 9 2 9 . 
+                            . . 3 2 2 2 2 . 
+                            . . 3 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 3 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 2 . 2 . 
+                            3 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 3 . 
+                            . . 2 . 2 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 3 2 . 
+                            . 2 2 2 9 3 9 . 
+                            . . 2 2 2 3 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 3 . 2 . 
+                            2 . . . 3 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 3 2 2 . 
+                            . . 2 . 3 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 3 9 2 9 . 
+                            . . 2 3 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 3 2 9 2 9 . 
+                            . . 3 2 2 2 2 . 
+                            . . 3 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 3 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 2 . 2 . 
+                            3 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 3 . 
+                            . . 2 . 2 . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 3 2 . 
+                            . 2 2 2 9 3 9 . 
+                            . . 2 2 2 3 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 3 . 2 . 
+                            2 . . . 3 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 3 2 2 . 
+                            . . 2 . 3 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 3 9 2 9 . 
+                            . . 2 3 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 3 2 9 2 9 . 
+                            . . 3 2 2 2 2 . 
+                            . . 3 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 3 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 2 . 2 . 
+                            3 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 2 2 2 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 2 2 2 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 2 2 2 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . 4 4 . . . . 
+                            . 4 4 . . . . . 
+                            . 4 4 4 . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 2 2 2 2 3 . 
+                            . . 2 2 2 2 3 . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . 4 4 . . . . 
+                            . 4 4 . . . . . 
+                            . 4 4 4 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 3 2 . 
+                            . 2 2 2 2 3 2 . 
+                            . . 2 2 2 3 2 . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . 5 5 . . . . 
+                            . 5 5 . . . . . 
+                            . 5 5 5 . . . . 
+                            2 . . . 3 . 2 . 
+                            2 . . . 3 2 2 . 
+                            . 2 2 2 3 2 2 . 
+                            . . 2 2 3 2 2 . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . 4 4 . . . . 
+                            . 4 4 . . . . . 
+                            . 4 4 4 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 3 2 2 2 . 
+                            . . 2 3 2 2 2 . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . 5 5 . . . . 
+                            . 5 5 . . . . . 
+                            . 5 5 5 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 3 2 2 2 2 . 
+                            . . 3 2 2 2 2 . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . 4 4 . . . . 
+                            . 4 4 . . . . . 
+                            . 4 4 4 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 3 2 2 2 2 2 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . 5 5 . . . . 
+                            . 5 5 . . . . . 
+                            . 5 5 5 . . . . 
+                            3 . . . 2 . 2 . 
+                            3 . . . 2 2 2 . 
+                            . 2 2 2 2 2 2 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . 4 4 . . . . 
+                            . 4 4 . . . . . 
+                            . 4 4 4 . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 2 2 2 2 3 . 
+                            . . 2 2 2 2 3 . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . 5 5 . . . . 
+                            . 5 5 . . . . . 
+                            . 5 5 5 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 3 2 . 
+                            . 2 2 2 2 3 2 . 
+                            . . 2 2 2 3 2 . 
+                            `,img`
+                            . 4 4 4 . . . . 
+                            . . 4 4 . . . . 
+                            . 4 4 . . . . . 
+                            . 4 4 4 . . . . 
+                            2 . . . 3 . 2 . 
+                            2 . . . 3 2 2 . 
+                            . 2 2 2 3 2 2 . 
+                            . . 2 2 3 2 2 . 
+                            `,img`
+                            . 5 5 5 . . . . 
+                            . . 5 5 . . . . 
+                            . 5 5 . . . . . 
+                            . 5 5 5 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 3 2 2 2 . 
+                            . . 2 3 2 2 2 . 
+                            `,img`
+                            . . 5 . . . . . 
+                            . . . 5 . . . . 
+                            . . 5 . . . . . 
+                            . 5 . 5 . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 3 2 2 2 2 . 
+                            . . 3 2 2 2 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . 5 . . . . 
+                            . . 5 . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 3 2 2 2 2 2 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 2 . 2 . 
+                            3 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . 2 . 2 . 2 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.NotMoving)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 2 
+                            . 2 2 2 . . . 2 
+                            . 9 2 9 2 2 2 . 
+                            . 2 2 2 2 2 . . 
+                            2 . 2 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 3 
+                            . 2 2 2 . . . 3 
+                            . 9 2 9 2 2 2 . 
+                            . 2 2 2 2 2 . . 
+                            2 . 2 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 2 
+                            . 2 2 2 . . . 2 
+                            . 9 2 9 2 2 3 . 
+                            . 2 2 2 2 2 . . 
+                            2 . 2 . . . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 2 
+                            . 2 2 2 . . . 2 
+                            . 9 2 9 2 3 2 . 
+                            . 2 2 2 2 3 . . 
+                            2 . 2 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 2 
+                            . 2 2 2 . . . 2 
+                            . 9 2 9 3 2 2 . 
+                            . 2 2 2 3 2 . . 
+                            2 . 2 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 3 . . . 2 
+                            . 2 2 3 . . . 2 
+                            . 9 2 9 2 2 2 . 
+                            . 2 2 3 2 2 . . 
+                            2 . 2 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 2 
+                            . 2 3 2 . . . 2 
+                            . 9 3 9 2 2 2 . 
+                            . 2 3 2 2 2 . . 
+                            2 . 3 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . 2 . . . 2 
+                            . 3 2 2 . . . 2 
+                            . 9 2 9 2 2 2 . 
+                            . 3 2 2 2 2 . . 
+                            2 . 2 . . . 2 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 2 . . . 2 
+                            . 2 2 2 . . . 2 
+                            . 9 2 9 2 2 2 . 
+                            . 2 2 2 2 2 . . 
+                            3 . 2 . . . 2 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 3 . 
+                            . 2 . 2 . . 3 . 
+                            . 2 2 2 . . 3 . 
+                            . 9 2 9 2 2 . . 
+                            . 2 2 2 2 2 . . 
+                            2 . 2 . 2 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 2 . 
+                            . 2 . 2 . . 2 . 
+                            . 2 2 2 . . 2 . 
+                            . 9 2 9 2 3 . . 
+                            . 2 2 2 2 3 . . 
+                            2 . 2 . 2 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 2 . 
+                            . 2 . 2 . . 2 . 
+                            . 2 2 2 . . 2 . 
+                            . 9 2 9 3 2 . . 
+                            . 2 2 2 3 2 . . 
+                            2 . 2 . 3 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 2 . 
+                            . 2 . 3 . . 2 . 
+                            . 2 2 3 . . 2 . 
+                            . 9 2 9 2 2 . . 
+                            . 2 2 3 2 2 . . 
+                            2 . 2 . 2 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 2 . 
+                            . 2 . 2 . . 2 . 
+                            . 2 3 2 . . 2 . 
+                            . 9 3 9 2 2 . . 
+                            . 2 3 2 2 2 . . 
+                            2 . 3 . 2 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 2 . 
+                            . 3 . 2 . . 2 . 
+                            . 3 2 2 . . 2 . 
+                            . 9 2 9 2 2 . . 
+                            . 3 2 2 2 2 . . 
+                            2 . 2 . 2 . . . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 2 . 
+                            . 2 . 2 . . 2 . 
+                            . 2 2 2 . . 2 . 
+                            . 9 2 9 2 2 . . 
+                            . 2 2 2 2 2 . . 
+                            3 . 2 . 2 . . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . 2 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 2 . 2 . 
+                            3 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . 2 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 3 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . 3 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 3 2 9 2 9 . 
+                            . . 3 2 2 2 2 . 
+                            . 2 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 3 9 2 9 . 
+                            . . 2 3 2 2 2 . 
+                            . 2 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 3 . 2 . 
+                            2 . . . 3 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 3 2 2 . 
+                            . 2 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 3 2 . 
+                            . 2 2 2 9 3 9 . 
+                            . . 2 2 2 3 2 . 
+                            . 2 . . . 3 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 3 . 
+                            . 2 . . . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 2 . 
+                            2 . . . 2 2 2 . 
+                            . 2 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . 2 . . . 2 . 3 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . . . . . . 
+                            . 3 . . 2 . 2 . 
+                            . 3 . . 2 2 2 . 
+                            . . 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . . 2 . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . . . . . . 
+                            . 2 . . 2 . 2 . 
+                            . 2 . . 2 2 2 . 
+                            . . 3 2 9 2 9 . 
+                            . . 3 2 2 2 2 . 
+                            . . . 2 . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . . . . . . 
+                            . 2 . . 2 . 2 . 
+                            . 2 . . 2 2 2 . 
+                            . . 2 3 9 2 9 . 
+                            . . 2 3 2 2 2 . 
+                            . . . 3 . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . . . . . . 
+                            . 2 . . 3 . 2 . 
+                            . 2 . . 3 2 2 . 
+                            . . 2 2 9 2 9 . 
+                            . . 2 2 3 2 2 . 
+                            . . . 2 . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . . . . . . 
+                            . 2 . . 2 . 2 . 
+                            . 2 . . 2 3 2 . 
+                            . . 2 2 9 3 9 . 
+                            . . 2 2 2 3 2 . 
+                            . . . 2 . 3 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . . . . . . 
+                            . 2 . . 2 . 3 . 
+                            . 2 . . 2 2 3 . 
+                            . . 2 2 9 2 9 . 
+                            . . 2 2 2 2 3 . 
+                            . . . 2 . 2 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . . . . . . 
+                            . 2 . . 2 . 2 . 
+                            . 2 . . 2 2 2 . 
+                            . . 2 2 9 2 9 . 
+                            . . 2 2 2 2 2 . 
+                            . . . 2 . 2 . 3 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            3 . . . 3 . 2 . 
+                            3 . . . 3 3 2 . 
+                            . 3 2 2 9 3 9 . 
+                            . . 2 2 3 3 2 . 
+                            . 3 . . . 3 . 2 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            2 . . . 2 . 3 . 
+                            2 . . . 2 2 3 . 
+                            . 2 3 3 9 2 9 . 
+                            . . 3 3 2 2 3 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 2 . 3 . . . 3 
+                            . 2 3 3 . . . 3 
+                            . 9 3 9 2 2 3 . 
+                            . 2 3 3 2 2 . . 
+                            2 . 3 . . . 3 . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 3 . 2 . . . 2 
+                            . 3 2 2 . . . 2 
+                            . 9 2 9 3 3 2 . 
+                            . 3 2 2 3 3 . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingLeft)
+                        )
+                        Skin = 2
+                    }
+                }
+                if (selectedIndex == 1) {
+                    if (Perfects >= 3) {
+                        extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Spark), 100)
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 1 f 1 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 1 f 1 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 1 f 1 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . 4 . f . f . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . 4 . f . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . 4 . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . 4 . f . f . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . 4 . f . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . 4 . 
+                            `,img`
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . e . e . e . 
+                            . . f . f . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . f . f . f . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.NotMoving)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 4 . 4 . . . 5 
+                            . f f f . . . 5 
+                            . 5 f 5 f f 5 . 
+                            . 4 f 4 f f . . 
+                            f . f . . . f . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . 5 . 
+                            . 4 . 4 . . 5 . 
+                            . f f f . . 5 . 
+                            . 5 f 5 f f . . 
+                            . 4 f 4 f f . . 
+                            f . f . f . . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . f . . . f . f 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 5 . . . . . . 
+                            . 5 . . 4 . 4 . 
+                            . 5 . . f f f . 
+                            . . f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . . . f . f . f 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            . f . . . f . f 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            5 . . . 4 . 4 . 
+                            5 . . . f f f . 
+                            . 5 f f 5 f 5 . 
+                            . . f f 4 f 4 . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingRight)
+                        )
+                        characterAnimations.loopFrames(
+                        mySprite,
+                        [img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 4 . 4 . . . 5 
+                            . f f f . . . 5 
+                            . 5 f 5 f f 5 . 
+                            . 4 f 4 f f . . 
+                            f . f . . . f . 
+                            `,img`
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . . . . . . . . 
+                            . 4 . 4 . . . 5 
+                            . f f f . . . 5 
+                            . 5 f 5 f f 5 . 
+                            . 4 f 4 f f . . 
+                            `],
+                        200,
+                        characterAnimations.rule(Predicate.MovingLeft)
+                        )
+                        Skin = 1
+                    }
+                }
+                if (selectedIndex == 0) {
+                    extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(14, ExtraEffectPresetShape.Spark), 100)
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 4 4 4 . . . . 
+                        . . 4 4 . . . . 
+                        . 4 4 . . . . . 
+                        . 4 4 4 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 4 4 4 . . . . 
+                        . . 4 4 . . . . 
+                        . 4 4 . . . . . 
+                        . 4 4 4 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 5 5 5 . . . . 
+                        . . 5 5 . . . . 
+                        . 5 5 . . . . . 
+                        . 5 5 5 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 4 4 4 . . . . 
+                        . . 4 4 . . . . 
+                        . 4 4 . . . . . 
+                        . 4 4 4 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 5 5 5 . . . . 
+                        . . 5 5 . . . . 
+                        . 5 5 . . . . . 
+                        . 5 5 5 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 4 4 4 . . . . 
+                        . . 4 4 . . . . 
+                        . 4 4 . . . . . 
+                        . 4 4 4 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 5 5 5 . . . . 
+                        . . 5 5 . . . . 
+                        . 5 5 . . . . . 
+                        . 5 5 5 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 4 4 4 . . . . 
+                        . . 4 4 . . . . 
+                        . 4 4 . . . . . 
+                        . 4 4 4 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 5 5 5 . . . . 
+                        . . 5 5 . . . . 
+                        . 5 5 . . . . . 
+                        . 5 5 5 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 4 4 4 . . . . 
+                        . . 4 4 . . . . 
+                        . 4 4 . . . . . 
+                        . 4 4 4 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . 5 5 5 . . . . 
+                        . . 5 5 . . . . 
+                        . 5 5 . . . . . 
+                        . 5 5 5 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . . 5 . . . . . 
+                        . . . 5 . . . . 
+                        . . 5 . . . . . 
+                        . 5 . 5 . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . 5 . . . . 
+                        . . 5 . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f f f f . 
+                        . . f f f f f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . f . f . f . 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.NotMoving)
+                    )
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . f . f . . . f 
+                        . f f f . . . f 
+                        . 1 f 1 f f f . 
+                        . f f f f f . . 
+                        f . f . . . f . 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+                    )
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . f . 
+                        . f . f . . f . 
+                        . f f f . . f . 
+                        . 1 f 1 f f . . 
+                        . f f f f f . . 
+                        f . f . f . . . 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+                    )
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . f . . . f . f 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+                    )
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . f . . . . . . 
+                        . f . . f . f . 
+                        . f . . f f f . 
+                        . . f f 1 f 1 . 
+                        . . f f f f f . 
+                        . . . f . f . f 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+                    )
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        . f . . . f . f 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        f . . . f . f . 
+                        f . . . f f f . 
+                        . f f f 1 f 1 . 
+                        . . f f f f f . 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.MovingRight)
+                    )
+                    characterAnimations.loopFrames(
+                    mySprite,
+                    [img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . f . f . . . f 
+                        . f f f . . . f 
+                        . 1 f 1 f f f . 
+                        . f f f f f . . 
+                        f . f . . . f . 
+                        `,img`
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . . . . . . . . 
+                        . f . f . . . f 
+                        . f f f . . . f 
+                        . 1 f 1 f f f . 
+                        . f f f f f . . 
+                        `],
+                    200,
+                    characterAnimations.rule(Predicate.MovingLeft)
+                    )
+                    Skin = 0
+                }
+                sprites.destroy(myMenu)
+                controller.moveSprite(mySprite, 70, 0)
+                GameStart = 1
+                pause(500)
+                tiles.setTileAt(location, assets.tile`myTile58`)
+            })
+        })
+    } else {
+        mySprite.sayText("A", 50, false)
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile44`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
