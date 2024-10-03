@@ -545,6 +545,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
                     SoundExpressionEffect.None,
                     InterpolationCurve.Linear
                     ), music.PlaybackMode.InBackground)
+                    Condition += -1
                     mySprite3.vy = 0
                     mySprite3.vy += -65
                 } else {
@@ -14481,6 +14482,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onLifeZero(function () {
     timer.after(1, function () {
         info.changeLifeBy(5)
+        Condition = 0
         color.startFade(color.White, color.originalPalette, 1000)
         tiles.placeOnRandomTile(mySprite, assets.tile`myTile41`)
         tiles.placeOnRandomTile(mySprite, assets.tile`myTile52`)
@@ -15777,6 +15779,32 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile89`, function (sprite, 
         mySprite.sayText("A", 50, false)
     }
 })
+function Achievement_Boss (Level: number, Ach_Name: string) {
+    timer.after(10000, function () {
+        if (Level == 10) {
+            if (Condition == 0) {
+                achievements.create("Achievement!", 5, Ach_Name, img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . 3 3 3 3 3 3 3 3 3 . . . . 
+                    . . . 3 3 3 3 1 3 3 3 3 . . . . 
+                    . . . . 3 3 1 1 1 3 3 . . . . . 
+                    . . . . 3 3 1 1 1 3 3 . . . . . 
+                    . . . . 3 3 3 1 3 3 2 . . . . . 
+                    . . . . 3 3 3 3 3 2 2 . . . . . 
+                    . . . . 3 3 3 2 2 2 2 . . . . . 
+                    . . . . . 2 2 2 2 2 . . . . . . 
+                    . . . . . . 2 2 2 . . . . . . . 
+                    . . . . . . . 2 . . . . . . . . 
+                    . . . . . . . 3 . . . . . . . . 
+                    . . . . . . 2 2 2 . . . . . . . 
+                    . . . . 2 2 2 2 2 2 2 . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `)
+            }
+        }
+    })
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile156`, function (sprite, location) {
     if (controller.A.isPressed()) {
         timer.after(1, function () {
@@ -16927,6 +16955,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile51`, function (sprite, 
                 75,
                 true
                 )
+                Achievement_Boss(10, "Double Down")
                 timer.after(2000, function () {
                     textSprite = textsprite.create("I am unique.", 1, 2)
                     textSprite.setMaxFontHeight(6)
@@ -17793,6 +17822,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, 
     }
 })
 function Simulate_Spikes () {
+    Condition = 0
     sprites.destroyAllSpritesOfKind(SpriteKind.Rank)
     profilelife.setInvisible(false)
     if (Difficult == 1) {
@@ -18076,6 +18106,7 @@ let Skin = 0
 let myMenu: miniMenu.MenuSprite = null
 let Perfects = 0
 let textSprite2: TextSprite = null
+let Condition = 0
 let GameStart = 0
 let ExtraJump = 0
 let mySprite4: Sprite = null
@@ -18786,6 +18817,14 @@ if (!(blockSettings.exists("Start")) || blockSettings.readNumber("Start") == 0) 
     blockSettings.writeNumber("Unlock", 0)
     blockSettings.writeNumber("LevelDone", 0)
     blockSettings.writeNumber("Skin", 0)
+    blockSettings.writeNumber("Early Bird", 0)
+    blockSettings.writeNumber("Double Link", 0)
+    blockSettings.writeNumber("Late Owl", 0)
+    blockSettings.writeNumber("Out of Orbs", 0)
+    blockSettings.writeNumber("Tarnish", 0)
+    blockSettings.writeNumber("Inner Peace", 0)
+    blockSettings.writeNumber("No Cure", 0)
+    blockSettings.writeNumber("Studio Killers", 0)
 }
 music.stopAllSounds()
 color.startFadeFromCurrent(color.White, 1750)
@@ -18794,6 +18833,14 @@ story.printDialog("D R E A M .", 80, 90, 50, 150, 5, 15, story.TextSpeed.Slow)
 pause(1500)
 sprites.destroy(mySprite9)
 timer.after(1, function () {
+    Level1Done = blockSettings.readNumber("Level1")
+    Level2Done = blockSettings.readNumber("Level2")
+    Level3Done = blockSettings.readNumber("Level3")
+    Level4Done = blockSettings.readNumber("Night Owl")
+    Level5Done = blockSettings.readNumber("Early Bird")
+    Level6Done = blockSettings.readNumber("Inner Peace")
+    Level7Done = blockSettings.readNumber("Tarnish")
+    Level8Done = blockSettings.readNumber("Studio Killers")
     Level1Done = blockSettings.readNumber("Level1")
     Level2Done = blockSettings.readNumber("Level2")
     Level3Done = blockSettings.readNumber("Level3")
